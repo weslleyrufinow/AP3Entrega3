@@ -15,15 +15,26 @@ void yyerror(const char* s);
 }
 
 %token VAR PROGRAM 
-%token R_BRACE L_BRACE
+%token L_BRACE R_BRACE SEMICOLON
+%token INT_TYPE STRING_TYPE
+%token ID
 
 %start program
 
 %%
 
-program: VAR L_BRACE R_BRACE PROGRAM L_BRACE R_BRACE {printf("Achou program\n");}
+program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE R_BRACE {printf("\n*program\n ");}
 ;
-
+declarations: 
+            | declaration declarations {printf("\n*declarations ");}
+;
+declaration: type id {printf("\n*declaration ");}
+;
+type: INT_TYPE ID SEMICOLON{printf("\n*INT_TYPE ID SEMICOLON ");}
+    | STRING_TYPE ID SEMICOLON{printf("\n*STRING_TYPE ID SEMICOLON ");}
+;
+id:
+;
 %%
 
 int main(){

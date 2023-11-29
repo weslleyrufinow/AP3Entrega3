@@ -111,10 +111,18 @@ enum yysymbol_kind_t
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
   YYSYMBOL_VAR = 3,                        /* VAR  */
   YYSYMBOL_PROGRAM = 4,                    /* PROGRAM  */
-  YYSYMBOL_R_BRACE = 5,                    /* R_BRACE  */
-  YYSYMBOL_L_BRACE = 6,                    /* L_BRACE  */
-  YYSYMBOL_YYACCEPT = 7,                   /* $accept  */
-  YYSYMBOL_program = 8                     /* program  */
+  YYSYMBOL_L_BRACE = 5,                    /* L_BRACE  */
+  YYSYMBOL_R_BRACE = 6,                    /* R_BRACE  */
+  YYSYMBOL_SEMICOLON = 7,                  /* SEMICOLON  */
+  YYSYMBOL_INT_TYPE = 8,                   /* INT_TYPE  */
+  YYSYMBOL_STRING_TYPE = 9,                /* STRING_TYPE  */
+  YYSYMBOL_ID = 10,                        /* ID  */
+  YYSYMBOL_YYACCEPT = 11,                  /* $accept  */
+  YYSYMBOL_program = 12,                   /* program  */
+  YYSYMBOL_declarations = 13,              /* declarations  */
+  YYSYMBOL_declaration = 14,               /* declaration  */
+  YYSYMBOL_type = 15,                      /* type  */
+  YYSYMBOL_id = 16                         /* id  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -442,19 +450,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   6
+#define YYLAST   13
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  7
+#define YYNTOKENS  11
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  2
+#define YYNNTS  6
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  2
+#define YYNRULES  8
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  9
+#define YYNSTATES  20
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   261
+#define YYMAXUTOK   265
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -494,14 +502,14 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6
+       5,     6,     7,     8,     9,    10
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    24,    24
+       0,    26,    26,    28,    29,    31,    33,    34,    36
 };
 #endif
 
@@ -518,7 +526,8 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "VAR", "PROGRAM",
-  "R_BRACE", "L_BRACE", "$accept", "program", YY_NULLPTR
+  "L_BRACE", "R_BRACE", "SEMICOLON", "INT_TYPE", "STRING_TYPE", "ID",
+  "$accept", "program", "declarations", "declaration", "type", "id", YY_NULLPTR
 };
 
 static const char *
@@ -528,7 +537,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-6)
+#define YYPACT_NINF (-9)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -542,7 +551,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,    -5,     2,    -2,    -6,     0,    -1,     1,    -6
+      -1,    -2,     4,    -8,    -9,    -5,    -4,     1,    -8,    -9,
+       2,     3,     7,    -9,    -9,    -9,    -9,     8,     6,    -9
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -550,19 +560,20 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     1,     0,     0,     0,     2
+       0,     0,     0,     3,     1,     0,     0,     0,     3,     8,
+       0,     0,     0,     4,     5,     6,     7,     0,     0,     2
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -6,    -6
+      -9,    -9,     0,    -9,    -9,    -9
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     2
+       0,     2,     7,     8,     9,    14
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -570,31 +581,34 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     3,     4,     5,     6,     7,     8
+       5,     6,     1,     3,     4,    10,    11,    12,    13,    15,
+      16,    17,    19,    18
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     6,     0,     5,     4,     6,     5
+       8,     9,     3,     5,     0,    10,    10,     6,     8,     7,
+       7,     4,     6,     5
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     8,     6,     0,     5,     4,     6,     5
+       0,     3,    12,     5,     0,     8,     9,    13,    14,    15,
+      10,    10,     6,    13,    16,     7,     7,     4,     5,     6
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,     7,     8
+       0,    11,    12,    13,    13,    14,    15,    15,    16
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     6
+       0,     2,     7,     0,     2,     2,     3,     3,     0
 };
 
 
@@ -1057,14 +1071,38 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2: /* program: VAR L_BRACE R_BRACE PROGRAM L_BRACE R_BRACE  */
-#line 24 "ap2Bison.y"
-                                                     {printf("Achou program\n");}
-#line 1064 "ap2Bison.tab.c"
+  case 2: /* program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE R_BRACE  */
+#line 26 "ap2Bison.y"
+                                                                  {printf("\n*program\n ");}
+#line 1078 "ap2Bison.tab.c"
+    break;
+
+  case 4: /* declarations: declaration declarations  */
+#line 29 "ap2Bison.y"
+                                       {printf("\n*declarations ");}
+#line 1084 "ap2Bison.tab.c"
+    break;
+
+  case 5: /* declaration: type id  */
+#line 31 "ap2Bison.y"
+                     {printf("\n*declaration ");}
+#line 1090 "ap2Bison.tab.c"
+    break;
+
+  case 6: /* type: INT_TYPE ID SEMICOLON  */
+#line 33 "ap2Bison.y"
+                           {printf("\n*INT_TYPE ID SEMICOLON ");}
+#line 1096 "ap2Bison.tab.c"
+    break;
+
+  case 7: /* type: STRING_TYPE ID SEMICOLON  */
+#line 34 "ap2Bison.y"
+                              {printf("\n*STRING_TYPE ID SEMICOLON ");}
+#line 1102 "ap2Bison.tab.c"
     break;
 
 
-#line 1068 "ap2Bison.tab.c"
+#line 1106 "ap2Bison.tab.c"
 
       default: break;
     }
@@ -1257,7 +1295,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 27 "ap2Bison.y"
+#line 38 "ap2Bison.y"
 
 
 int main(){

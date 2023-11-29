@@ -5,3 +5,7 @@ PROGRAM {
     msg = "Hello, World"
     out(msg)
 }
+
+printf\("([^"]*)"\);
+
+/*printf\("$1"\);*/

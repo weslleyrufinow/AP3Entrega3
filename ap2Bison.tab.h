@@ -56,8 +56,12 @@ extern int yydebug;
     YYUNDEF = 257,                 /* "invalid token"  */
     VAR = 258,                     /* VAR  */
     PROGRAM = 259,                 /* PROGRAM  */
-    R_BRACE = 260,                 /* R_BRACE  */
-    L_BRACE = 261                  /* L_BRACE  */
+    L_BRACE = 260,                 /* L_BRACE  */
+    R_BRACE = 261,                 /* R_BRACE  */
+    SEMICOLON = 262,               /* SEMICOLON  */
+    INT_TYPE = 263,                /* INT_TYPE  */
+    STRING_TYPE = 264,             /* STRING_TYPE  */
+    ID = 265                       /* ID  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -71,7 +75,7 @@ union YYSTYPE
     int num;
     char* str;
 
-#line 75 "ap2Bison.tab.h"
+#line 79 "ap2Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

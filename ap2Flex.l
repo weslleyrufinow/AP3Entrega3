@@ -8,15 +8,24 @@ VAR      ("VAR")
 PROGRAM  ("PROGRAM")
 L_BRACE  [\{]
 R_BRACE  [\}]
-IGNORAR  [ \t\n]
+SEMICOLON  [\;]
+IGNORAR  [ \n\t]*
+INT_TYPE ("int")
+STRING_TYPE ("string")
+ID [a-zA-Z][a-zA-Z0-9]*
 
 %%
 
-{VAR}                {printf("VAR\n"); return VAR;}
-{PROGRAM}            {printf("PROGRAM\n"); return PROGRAM;}
-{L_BRACE}            {printf("R_BRACE\n"); return L_BRACE;}
-{R_BRACE}            {printf("L_BRACE\n"); return R_BRACE;}
+{VAR}                {/*printf\("VAR\n"\);*/ return VAR;}
+{PROGRAM}            {/*printf\("\nPROGRAM\n"\);*/ return PROGRAM;}
+{L_BRACE}            {/*printf\("L_BRACE "\);*/ return L_BRACE;}
+{R_BRACE}            {/*printf\("R_BRACE "\);*/ return R_BRACE;}
+{SEMICOLON}          {/*printf\("SEMICOLON\n"\);*/ return SEMICOLON;}
 {IGNORAR}            {;}
+{INT_TYPE}           {/*printf\("INT_TYPE "\);*/ return INT_TYPE;}
+{STRING_TYPE}        {/*printf\("STRING_TYPE "\);*/ return STRING_TYPE;}
+{ID}                 {/*printf\("ID "\);*/ return ID;}
+
 
 %%
 
