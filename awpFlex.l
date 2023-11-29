@@ -37,41 +37,40 @@ IGNORE      [ \t]
 
 %%
 
-{PROGRAM}     {printf("PROGRAM: %s\n",yytext);}
-{VAR}         {printf("VAR: %s\n",yytext);}
-{L_BRACE}     {printf("L_BRACE: %s\n",yytext);}
-{R_BRACE}     {printf("R_BRACE: %s\n",yytext);}
-{IF}          {printf("IF: %s\n",yytext);}
-{ELSE}        {printf("ELSE: %s\n",yytext);}
-{WHILE}       {printf("WHILE: %s\n",yytext);}
-{IN}          {printf("IN: %s\n",yytext);}
-{OUT}         {printf("OUT: %s\n",yytext);}
-{EQ}          {printf("EQ: %s\n",yytext);}
-{NEQ}         {printf("NEQ: %s\n",yytext);}
-{LT}          {printf("LT: %s\n",yytext);}
-{GT}          {printf("GT: %s\n",yytext);}
-{LTE}         {printf("LTE: %s\n",yytext);}
-{GTE}         {printf("GTE: %s\n",yytext);}
-{ASSIGN}      {printf("ASSIGN: %s\n",yytext);}
-{COMMA}       {printf("COMMA: %s\n",yytext);}
-{L_PAREN}     {printf("L_PAREN: %s\n",yytext);}
-{R_PAREN}     {printf("R_PAREN: %s\n",yytext);}
-{PLUS}        {printf("PLUS: %s\n",yytext);}
-{MIN}         {printf("MIN: %s\n",yytext);}
-{MUL}         {printf("MUL: %s\n",yytext);}
-{DIV}         {printf("DIV: %s\n",yytext);}
-{INT_TYPE}    {printf("INT_TYPE: %s\n",yytext);}
-{FLOAT_TYPE}  {printf("FLOAT_TYPE: %s\n",yytext);}
-{STRING_TYPE} {printf("STRING_TYPE: %s\n",yytext);}
-{NUMBER}      {printf("NUMBER: %s\n",yytext);}
-{STRING}      {printf("STRING: %s\n",yytext);}
-{NEW_LINE}    {printf("NEW_LINE\n");}
-{ID}          {printf("ID: %s\n",yytext);}
+{PROGRAM}     {printf("%s ", yytext);}
+{VAR}         {printf("%s ", yytext);}
+{L_BRACE}     {printf("%s ", yytext);}
+{R_BRACE}     {printf("%s ", yytext);}
+{IF}          {printf("%s ", yytext);}
+{ELSE}        {printf("%s ", yytext);}
+{WHILE}       {printf("%s ", yytext);}
+{IN}          {printf("%s ", yytext);}
+{OUT}         {printf("%s ", yytext);}
+{EQ}          {printf("%s ", yytext);}
+{NEQ}         {printf("%s ", yytext);}
+{LT}          {printf("%s ", yytext);}
+{GT}          {printf("%s ", yytext);}
+{LTE}         {printf("%s ", yytext);}
+{GTE}         {printf("%s ", yytext);}
+{ASSIGN}      {printf("%s ", yytext);}
+{COMMA}       {printf("%s ", yytext);}
+{L_PAREN}     {printf("%s ", yytext);}
+{R_PAREN}     {printf("%s ", yytext);}
+{PLUS}        {printf("%s ", yytext);}
+{MIN}         {printf("%s ", yytext);}
+{MUL}         {printf("%s ", yytext);}
+{DIV}         {printf("%s ", yytext);}
+{INT_TYPE}    {printf("%s ", yytext);}
+{FLOAT_TYPE}  {printf("%s ", yytext);}
+{STRING_TYPE} {printf("%s ", yytext);}
+{NUMBER}      {printf("%s ", yytext);}
+{STRING}      {printf("%s ", yytext);}
+{NEW_LINE}    {printf("\n");}
+{ID}          {printf("%s ", yytext);}
 {IGNORE}      {;}
 
 %%
 
 int main() {
-    yylex();
-    return 0;
+    yylex();return 0;
 }
