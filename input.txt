@@ -1,7 +1,5 @@
-VAR {
-    string msg
-} 
-PROGRAM {
-    msg = "Hello, World"
-    out(msg)
+VAR{
+    
+}PROGRAM{
+    
 }
