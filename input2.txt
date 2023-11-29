@@ -1,0 +1,10 @@
+VAR {
+    int count
+} 
+PROGRAM {
+    count = 10
+    while(count < 15) {
+        out(count)
+        count = count + 1
+    }
+}

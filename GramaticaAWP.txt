@@ -1,0 +1,36 @@
+<program>      ::= "VAR" "{" <declarations> "}" "PROGRAM" "{" <cmds> "}"
+
+<declarations> ::= <declaration> <declarations> | null
+<declaration>  ::= <type> <id> 
+
+<cmds>         ::= <cmd> <cmds> | null
+<cmd>          ::= <attribution> | <condition> | <loop> | <in> | <out>
+<attribution>  ::= <id>"="<value>
+<value>        ::= <term> | <relation> | <string>
+
+<mat_exp>      ::= <term> | <term> <mat_op> <term> | "(" <mat_exp> ")"
+<term>         ::= <number> | <id> | <mat_exp>
+
+<relation>     ::= <term> <rel_op> <term>
+
+<condition>    ::= "if"(" <relation> "){" <cmds> "}" <else>
+<else>         ::= "else{" <cmds> "}" | null
+
+<loop>         ::= "while""(" <relation> ")""{" <cmds> "}"
+
+<in>           ::= <id> "=" "in""(" <input> ")"
+<out>          ::= "out""(" <outputs> ")"
+<outputs>      ::= <output> | <output> "," <outputs> | 
+<output>       ::= <id> | <number> | <string>
+<input>        ::= <number> | <string> 
+
+<number>       ::= <digits> | <digits> <decimal>
+<decimal>      ::= "." <digits> | null
+<digits>       ::= <digit> <digits> 
+<string>       ::= <char> <string> | <char>
+
+<mat_op>       ::= "+" | "*" | "/" | "-"
+<rel_op>       ::= "<" | ">" | ">=" | "<=" | "==" | "!="
+<type>         ::= "int" | "float" | "string"
+<digit>        ::= [0-9]
+<char>         ::= [a-zA-Z]

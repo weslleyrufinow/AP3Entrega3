@@ -1,0 +1,15 @@
+VAR {
+    int count
+}
+PROGRAM {
+    count = 0
+    while (count < 5) {
+        if (count == 2) {
+            out("count = 2")
+        } else {
+            out("count nao = 2")
+        }
+        count = count + 1
+    }
+    out("Fim do programa")
+}
