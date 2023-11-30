@@ -71,10 +71,15 @@ extern int yydebug;
     SUB = 272,                     /* SUB  */
     MUL = 273,                     /* MUL  */
     DIV = 274,                     /* DIV  */
-    condition = 275,               /* condition  */
-    loop = 276,                    /* loop  */
-    in = 277,                      /* in  */
-    out = 278                      /* out  */
+    EQ = 275,                      /* EQ  */
+    NEQ = 276,                     /* NEQ  */
+    LT = 277,                      /* LT  */
+    GT = 278,                      /* GT  */
+    LTE = 279,                     /* LTE  */
+    GTE = 280,                     /* GTE  */
+    loop = 281,                    /* loop  */
+    in = 282,                      /* in  */
+    out = 283                      /* out  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -88,7 +93,7 @@ union YYSTYPE
     int num;
     char* str;
 
-#line 92 "ap2Bison.tab.h"
+#line 97 "ap2Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

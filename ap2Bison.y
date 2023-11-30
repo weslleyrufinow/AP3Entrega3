@@ -19,8 +19,9 @@ void yyerror(const char* s);
 %token INT_TYPE STRING_TYPE
 %token ID ASSIGN STRING INT
 %token SUM SUB MUL DIV
+%token EQ NEQ LT GT LTE GTE
 
-%token condition loop in out
+%token loop in out
 %start program
 
 %%
@@ -40,7 +41,7 @@ cmds:          {printf("\n*cmds ");}
 ;
 cmd: att       {printf("\n*cmd - att");}
    | condition 
-   | loop 
+   | loop   
    | in 
    | out
 ;
@@ -54,8 +55,7 @@ term: INT      {printf("\n*term - INT ");}
     | ID       {printf("\n*term - ID ");}
     | mat_exp  {printf("\n*term - mat_exp ");}
 ;
-mat_exp: term
-       | L_PAREN term R_PAREN             {printf("\n*mat_exp - ( term )" );}
+mat_exp: L_PAREN term R_PAREN             {printf("\n*mat_exp - ( term )" );}
        | term mat_op term                 {printf("\n*mat_exp - term mat_op term" );}
        | L_PAREN term mat_op term R_PAREN {printf("\n*mat_exp - ( term mat_op term )" );}
 ;
@@ -64,7 +64,19 @@ mat_op: SUM {printf("\n*mat_op - SUM" );}
       | MUL {printf("\n*mat_op - MUL" );}
       | DIV {printf("\n*mat_op - DIV" );}
 ;
-relation:
+
+relation: term rel_op term {printf("\n*relation - term rel_op term" );}
+;
+
+rel_op: EQ  {printf("\n*rel_op - EQ" );}
+      | NEQ {printf("\n*rel_op - NEQ" );}
+      | LT  {printf("\n*rel_op - LT" );}
+      | GT  {printf("\n*rel_op - GT" );}
+      | LTE {printf("\n*rel_op - LTE" );}
+      | GTE {printf("\n*rel_op - GTE" );}
+;
+
+condition:
 ;
 %%
 

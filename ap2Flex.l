@@ -22,27 +22,39 @@ SUM ("+")
 SUB ("-")
 MUL ("*")
 DIV ("/")
+EQ  ("==")
+NEQ ("!=")
+LT  ("<")
+GT  (">")
+LTE ("<=")
+GTE (">=")
 
 %%
 
-{VAR}                {/*printf("VAR\n");*/ return VAR;}
-{PROGRAM}            {/*printf("\nPROGRAM\n");*/ return PROGRAM;}
-{L_BRACE}            {/*printf("L_BRACE ");*/ return L_BRACE;}
-{R_BRACE}            {/*printf("R_BRACE ");*/ return R_BRACE;}
-{L_PAREN}            {/*printf("L_PAREN ");*/ return L_PAREN;}
-{R_PAREN}            {/*printf("R_PAREN ");*/ return R_PAREN;}
-{SEMICOLON}          {/*printf("SEMICOLON\n");*/ return SEMICOLON;}
-{IGNORAR}            {;}
-{INT_TYPE}           {/*printf("INT_TYPE ");*/ return INT_TYPE;}
-{STRING_TYPE}        {/*printf("STRING_TYPE ");*/ return STRING_TYPE;}
-{ID}                 {/*printf("ID ");*/ return ID;}
-{INT}                {/*printf("INT ");*/ return INT;}
-{STRING}             {/*printf("STRING ");*/ return STRING;}
-{ASSIGN}             {/*printf("ASSIGN ");*/ return ASSIGN;}
-{SUM}                {/*printf("SUM ");*/ return SUM;}
-{SUB}                {/*printf("SUB ");*/ return SUB;}
-{MUL}                {/*printf("MUL ");*/ return MUL;}
-{DIV}                {/*printf("DIV ");*/ return DIV;}
+{VAR}         {/*printf("VAR\n");*/ return VAR;}
+{PROGRAM}     {/*printf("\nPROGRAM\n");*/ return PROGRAM;}
+{L_BRACE}     {/*printf("L_BRACE ");*/ return L_BRACE;}
+{R_BRACE}     {/*printf("R_BRACE ");*/ return R_BRACE;}
+{L_PAREN}     {/*printf("L_PAREN ");*/ return L_PAREN;}
+{R_PAREN}     {/*printf("R_PAREN ");*/ return R_PAREN;}
+{SEMICOLON}   {/*printf("SEMICOLON\n");*/ return SEMICOLON;}
+{IGNORAR}     {;}
+{INT_TYPE}    {/*printf("INT_TYPE ");*/ return INT_TYPE;}
+{STRING_TYPE} {/*printf("STRING_TYPE ");*/ return STRING_TYPE;}
+{ID}          {/*printf("ID ");*/ return ID;}
+{INT}         {/*printf("INT ");*/ return INT;}
+{STRING}      {/*printf("STRING ");*/ return STRING;}
+{ASSIGN}      {/*printf("ASSIGN ");*/ return ASSIGN;}
+{SUM}         {/*printf("SUM ");*/ return SUM;}
+{SUB}         {/*printf("SUB ");*/ return SUB;}
+{MUL}         {/*printf("MUL ");*/ return MUL;}
+{DIV}         {/*printf("DIV ");*/ return DIV;}
+{EQ}          {/*printf("EQ ");*/ return EQ;}
+{NEQ}          {/*printf("NEQ ");*/ return NEQ;}
+{LT}          {/*printf("LT ");*/ return LT;}
+{GT}          {/*printf("GT ");*/ return GT;}
+{LTE}          {/*printf("EQ ");*/ return EQ;}
+{GTE}          {/*printf("GTE ");*/ return GTE;}
 
 %%
 

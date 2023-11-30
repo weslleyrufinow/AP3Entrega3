@@ -126,23 +126,30 @@ enum yysymbol_kind_t
   YYSYMBOL_SUB = 17,                       /* SUB  */
   YYSYMBOL_MUL = 18,                       /* MUL  */
   YYSYMBOL_DIV = 19,                       /* DIV  */
-  YYSYMBOL_condition = 20,                 /* condition  */
-  YYSYMBOL_loop = 21,                      /* loop  */
-  YYSYMBOL_in = 22,                        /* in  */
-  YYSYMBOL_out = 23,                       /* out  */
-  YYSYMBOL_YYACCEPT = 24,                  /* $accept  */
-  YYSYMBOL_program = 25,                   /* program  */
-  YYSYMBOL_declarations = 26,              /* declarations  */
-  YYSYMBOL_declaration = 27,               /* declaration  */
-  YYSYMBOL_type = 28,                      /* type  */
-  YYSYMBOL_cmds = 29,                      /* cmds  */
-  YYSYMBOL_cmd = 30,                       /* cmd  */
-  YYSYMBOL_att = 31,                       /* att  */
-  YYSYMBOL_value = 32,                     /* value  */
-  YYSYMBOL_term = 33,                      /* term  */
-  YYSYMBOL_mat_exp = 34,                   /* mat_exp  */
-  YYSYMBOL_mat_op = 35,                    /* mat_op  */
-  YYSYMBOL_relation = 36                   /* relation  */
+  YYSYMBOL_EQ = 20,                        /* EQ  */
+  YYSYMBOL_NEQ = 21,                       /* NEQ  */
+  YYSYMBOL_LT = 22,                        /* LT  */
+  YYSYMBOL_GT = 23,                        /* GT  */
+  YYSYMBOL_LTE = 24,                       /* LTE  */
+  YYSYMBOL_GTE = 25,                       /* GTE  */
+  YYSYMBOL_loop = 26,                      /* loop  */
+  YYSYMBOL_in = 27,                        /* in  */
+  YYSYMBOL_out = 28,                       /* out  */
+  YYSYMBOL_YYACCEPT = 29,                  /* $accept  */
+  YYSYMBOL_program = 30,                   /* program  */
+  YYSYMBOL_declarations = 31,              /* declarations  */
+  YYSYMBOL_declaration = 32,               /* declaration  */
+  YYSYMBOL_type = 33,                      /* type  */
+  YYSYMBOL_cmds = 34,                      /* cmds  */
+  YYSYMBOL_cmd = 35,                       /* cmd  */
+  YYSYMBOL_att = 36,                       /* att  */
+  YYSYMBOL_value = 37,                     /* value  */
+  YYSYMBOL_term = 38,                      /* term  */
+  YYSYMBOL_mat_exp = 39,                   /* mat_exp  */
+  YYSYMBOL_mat_op = 40,                    /* mat_op  */
+  YYSYMBOL_relation = 41,                  /* relation  */
+  YYSYMBOL_rel_op = 42,                    /* rel_op  */
+  YYSYMBOL_condition = 43                  /* condition  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -470,19 +477,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   45
+#define YYLAST   54
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  24
+#define YYNTOKENS  29
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  13
+#define YYNNTS  15
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  30
+#define YYNRULES  36
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  47
+#define YYNSTATES  55
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   278
+#define YYMAXUTOK   283
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -523,17 +530,18 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20,    21,    22,    23
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25,    26,    27,    28
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    28,    28,    30,    31,    33,    35,    36,    38,    39,
-      41,    42,    43,    44,    45,    47,    49,    50,    51,    53,
-      54,    55,    57,    58,    59,    60,    62,    63,    64,    65,
-      67
+       0,    29,    29,    31,    32,    34,    36,    37,    39,    40,
+      42,    43,    44,    45,    46,    48,    50,    51,    52,    54,
+      55,    56,    58,    59,    60,    62,    63,    64,    65,    68,
+      71,    72,    73,    74,    75,    76,    79
 };
 #endif
 
@@ -552,9 +560,10 @@ static const char *const yytname[] =
   "\"end of file\"", "error", "\"invalid token\"", "VAR", "PROGRAM",
   "L_BRACE", "R_BRACE", "L_PAREN", "R_PAREN", "SEMICOLON", "INT_TYPE",
   "STRING_TYPE", "ID", "ASSIGN", "STRING", "INT", "SUM", "SUB", "MUL",
-  "DIV", "condition", "loop", "in", "out", "$accept", "program",
-  "declarations", "declaration", "type", "cmds", "cmd", "att", "value",
-  "term", "mat_exp", "mat_op", "relation", YY_NULLPTR
+  "DIV", "EQ", "NEQ", "LT", "GT", "LTE", "GTE", "loop", "in", "out",
+  "$accept", "program", "declarations", "declaration", "type", "cmds",
+  "cmd", "att", "value", "term", "mat_exp", "mat_op", "relation", "rel_op",
+  "condition", YY_NULLPTR
 };
 
 static const char *
@@ -578,11 +587,12 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      12,     3,    18,    -4,   -28,   -28,   -28,    13,    -4,     8,
-      27,   -28,    24,    34,   -28,   -11,    19,   -28,   -28,   -28,
-     -28,    35,   -11,   -28,    22,   -28,   -28,    23,   -28,   -28,
-     -28,    31,   -14,   -28,   -28,     5,   -28,   -28,   -28,   -28,
-     -28,    23,   -28,    23,   -14,     9,   -28
+       6,    19,    25,    -3,   -28,   -28,   -28,    35,    -3,    30,
+      39,   -28,    37,    44,   -28,   -11,    31,   -28,   -28,   -28,
+      45,   -11,   -28,   -28,    33,   -28,   -28,     7,   -28,   -28,
+     -28,    41,    14,   -28,   -28,    -6,   -28,   -28,   -28,   -28,
+     -28,   -28,   -28,   -28,   -28,   -28,   -28,     7,     7,   -28,
+       7,   -13,   -13,    10,   -28
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -591,24 +601,25 @@ static const yytype_int8 yypact[] =
 static const yytype_int8 yydefact[] =
 {
        0,     0,     0,     3,     1,     6,     7,     0,     3,     0,
-       0,     4,     0,     0,     5,     8,     0,    11,    12,    13,
-      14,     0,     8,    10,    30,     2,     9,     0,    20,    18,
-      19,     0,    16,    21,    17,     0,    15,    26,    27,    28,
-      29,     0,    23,     0,    22,     0,    25
+       0,     4,     0,     0,     5,     8,     0,    12,    13,    14,
+       0,     8,    10,    11,     0,     2,     9,     0,    20,    18,
+      19,     0,    16,    21,    17,     0,    15,    25,    26,    27,
+      28,    30,    31,    32,    33,    34,    35,     0,     0,    22,
+       0,    23,    29,     0,    24
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -28,   -28,    36,   -28,   -28,    20,   -28,   -28,   -28,   -27,
-     -28,    10,   -28
+     -28,   -28,    46,   -28,   -28,    32,   -28,   -28,   -28,   -27,
+     -28,    17,   -28,   -28,   -28
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     2,     7,     8,     9,    21,    22,    23,    31,    32,
-      33,    41,    34
+       0,     2,     7,     8,     9,    20,    21,    22,    31,    32,
+      33,    47,    34,    48,    23
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -616,40 +627,43 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      35,    16,    37,    38,    39,    40,     5,     6,     3,    17,
-      18,    19,    20,    42,    44,     1,    45,    46,     4,    10,
-      12,    37,    38,    39,    40,    37,    38,    39,    40,    27,
-      27,    13,    24,    14,    28,    28,    29,    30,    30,    15,
-      36,    25,    26,     0,    11,    43
+      35,    16,    49,    37,    38,    39,    40,     5,     6,     1,
+      37,    38,    39,    40,    27,    17,    18,    19,    54,    28,
+      51,    52,    30,    53,     3,     4,    37,    38,    39,    40,
+      37,    38,    39,    40,    41,    42,    43,    44,    45,    46,
+      27,    10,    12,    13,    24,    28,    14,    29,    30,    15,
+      36,    25,    50,    26,    11
 };
 
 static const yytype_int8 yycheck[] =
 {
-      27,    12,    16,    17,    18,    19,    10,    11,     5,    20,
-      21,    22,    23,     8,    41,     3,    43,     8,     0,     6,
-      12,    16,    17,    18,    19,    16,    17,    18,    19,     7,
-       7,     4,    13,     9,    12,    12,    14,    15,    15,     5,
-       9,     6,    22,    -1,     8,    35
+      27,    12,     8,    16,    17,    18,    19,    10,    11,     3,
+      16,    17,    18,    19,     7,    26,    27,    28,     8,    12,
+      47,    48,    15,    50,     5,     0,    16,    17,    18,    19,
+      16,    17,    18,    19,    20,    21,    22,    23,    24,    25,
+       7,     6,    12,     4,    13,    12,     9,    14,    15,     5,
+       9,     6,    35,    21,     8
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,    25,     5,     0,    10,    11,    26,    27,    28,
-       6,    26,    12,     4,     9,     5,    12,    20,    21,    22,
-      23,    29,    30,    31,    13,     6,    29,     7,    12,    14,
-      15,    32,    33,    34,    36,    33,     9,    16,    17,    18,
-      19,    35,     8,    35,    33,    33,     8
+       0,     3,    30,     5,     0,    10,    11,    31,    32,    33,
+       6,    31,    12,     4,     9,     5,    12,    26,    27,    28,
+      34,    35,    36,    43,    13,     6,    34,     7,    12,    14,
+      15,    37,    38,    39,    41,    38,     9,    16,    17,    18,
+      19,    20,    21,    22,    23,    24,    25,    40,    42,     8,
+      40,    38,    38,    38,     8
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    24,    25,    26,    26,    27,    28,    28,    29,    29,
-      30,    30,    30,    30,    30,    31,    32,    32,    32,    33,
-      33,    33,    34,    34,    34,    34,    35,    35,    35,    35,
-      36
+       0,    29,    30,    31,    31,    32,    33,    33,    34,    34,
+      35,    35,    35,    35,    35,    36,    37,    37,    37,    38,
+      38,    38,    39,    39,    39,    40,    40,    40,    40,    41,
+      42,    42,    42,    42,    42,    42,    43
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
@@ -657,8 +671,8 @@ static const yytype_int8 yyr2[] =
 {
        0,     2,     8,     0,     2,     3,     1,     1,     0,     2,
        1,     1,     1,     1,     1,     4,     1,     1,     1,     1,
-       1,     1,     1,     3,     3,     5,     1,     1,     1,     1,
-       0
+       1,     1,     3,     3,     5,     1,     1,     1,     1,     3,
+       1,     1,     1,     1,     1,     1,     0
 };
 
 
@@ -1122,145 +1136,187 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE cmds R_BRACE  */
-#line 28 "ap2Bison.y"
+#line 29 "ap2Bison.y"
                                                                        {printf("\n*program\n ");}
-#line 1128 "ap2Bison.tab.c"
+#line 1142 "ap2Bison.tab.c"
     break;
 
   case 3: /* declarations: %empty  */
-#line 30 "ap2Bison.y"
+#line 31 "ap2Bison.y"
                                        {printf("\n*declarations ");}
-#line 1134 "ap2Bison.tab.c"
+#line 1148 "ap2Bison.tab.c"
     break;
 
   case 4: /* declarations: declaration declarations  */
-#line 31 "ap2Bison.y"
+#line 32 "ap2Bison.y"
                                        {printf("\n*declarations ");}
-#line 1140 "ap2Bison.tab.c"
+#line 1154 "ap2Bison.tab.c"
     break;
 
   case 5: /* declaration: type ID SEMICOLON  */
-#line 33 "ap2Bison.y"
+#line 34 "ap2Bison.y"
                                {printf("\n*declaration - type ID SEMICOLON");}
-#line 1146 "ap2Bison.tab.c"
+#line 1160 "ap2Bison.tab.c"
     break;
 
   case 6: /* type: INT_TYPE  */
-#line 35 "ap2Bison.y"
+#line 36 "ap2Bison.y"
                   {printf("\n*type - INT_TYPE");}
-#line 1152 "ap2Bison.tab.c"
+#line 1166 "ap2Bison.tab.c"
     break;
 
   case 7: /* type: STRING_TYPE  */
-#line 36 "ap2Bison.y"
+#line 37 "ap2Bison.y"
                   {printf("\n*type - STRING_TYPE");}
-#line 1158 "ap2Bison.tab.c"
+#line 1172 "ap2Bison.tab.c"
     break;
 
   case 8: /* cmds: %empty  */
-#line 38 "ap2Bison.y"
+#line 39 "ap2Bison.y"
                {printf("\n*cmds ");}
-#line 1164 "ap2Bison.tab.c"
+#line 1178 "ap2Bison.tab.c"
     break;
 
   case 9: /* cmds: cmd cmds  */
-#line 39 "ap2Bison.y"
+#line 40 "ap2Bison.y"
                {printf("\n*cmds ");}
-#line 1170 "ap2Bison.tab.c"
+#line 1184 "ap2Bison.tab.c"
     break;
 
   case 10: /* cmd: att  */
-#line 41 "ap2Bison.y"
+#line 42 "ap2Bison.y"
                {printf("\n*cmd - att");}
-#line 1176 "ap2Bison.tab.c"
+#line 1190 "ap2Bison.tab.c"
     break;
 
   case 15: /* att: ID ASSIGN value SEMICOLON  */
-#line 47 "ap2Bison.y"
+#line 48 "ap2Bison.y"
                                {printf("\n*att - ID ASSIGN value SEMICOLON ");}
-#line 1182 "ap2Bison.tab.c"
+#line 1196 "ap2Bison.tab.c"
     break;
 
   case 16: /* value: term  */
-#line 49 "ap2Bison.y"
+#line 50 "ap2Bison.y"
                 {printf("\n*value - term ");}
-#line 1188 "ap2Bison.tab.c"
+#line 1202 "ap2Bison.tab.c"
     break;
 
   case 17: /* value: relation  */
-#line 50 "ap2Bison.y"
+#line 51 "ap2Bison.y"
                 {printf("\n*value - relation ");}
-#line 1194 "ap2Bison.tab.c"
+#line 1208 "ap2Bison.tab.c"
     break;
 
   case 18: /* value: STRING  */
-#line 51 "ap2Bison.y"
+#line 52 "ap2Bison.y"
                 {printf("\n*value - STRING ");}
-#line 1200 "ap2Bison.tab.c"
+#line 1214 "ap2Bison.tab.c"
     break;
 
   case 19: /* term: INT  */
-#line 53 "ap2Bison.y"
+#line 54 "ap2Bison.y"
                {printf("\n*term - INT ");}
-#line 1206 "ap2Bison.tab.c"
+#line 1220 "ap2Bison.tab.c"
     break;
 
   case 20: /* term: ID  */
-#line 54 "ap2Bison.y"
+#line 55 "ap2Bison.y"
                {printf("\n*term - ID ");}
-#line 1212 "ap2Bison.tab.c"
+#line 1226 "ap2Bison.tab.c"
     break;
 
   case 21: /* term: mat_exp  */
-#line 55 "ap2Bison.y"
+#line 56 "ap2Bison.y"
                {printf("\n*term - mat_exp ");}
-#line 1218 "ap2Bison.tab.c"
+#line 1232 "ap2Bison.tab.c"
     break;
 
-  case 23: /* mat_exp: L_PAREN term R_PAREN  */
+  case 22: /* mat_exp: L_PAREN term R_PAREN  */
 #line 58 "ap2Bison.y"
                                           {printf("\n*mat_exp - ( term )" );}
-#line 1224 "ap2Bison.tab.c"
+#line 1238 "ap2Bison.tab.c"
     break;
 
-  case 24: /* mat_exp: term mat_op term  */
+  case 23: /* mat_exp: term mat_op term  */
 #line 59 "ap2Bison.y"
                                           {printf("\n*mat_exp - term mat_op term" );}
-#line 1230 "ap2Bison.tab.c"
+#line 1244 "ap2Bison.tab.c"
     break;
 
-  case 25: /* mat_exp: L_PAREN term mat_op term R_PAREN  */
+  case 24: /* mat_exp: L_PAREN term mat_op term R_PAREN  */
 #line 60 "ap2Bison.y"
                                           {printf("\n*mat_exp - ( term mat_op term )" );}
-#line 1236 "ap2Bison.tab.c"
+#line 1250 "ap2Bison.tab.c"
     break;
 
-  case 26: /* mat_op: SUM  */
+  case 25: /* mat_op: SUM  */
 #line 62 "ap2Bison.y"
             {printf("\n*mat_op - SUM" );}
-#line 1242 "ap2Bison.tab.c"
+#line 1256 "ap2Bison.tab.c"
     break;
 
-  case 27: /* mat_op: SUB  */
+  case 26: /* mat_op: SUB  */
 #line 63 "ap2Bison.y"
             {printf("\n*mat_op - SUB" );}
-#line 1248 "ap2Bison.tab.c"
+#line 1262 "ap2Bison.tab.c"
     break;
 
-  case 28: /* mat_op: MUL  */
+  case 27: /* mat_op: MUL  */
 #line 64 "ap2Bison.y"
             {printf("\n*mat_op - MUL" );}
-#line 1254 "ap2Bison.tab.c"
+#line 1268 "ap2Bison.tab.c"
     break;
 
-  case 29: /* mat_op: DIV  */
+  case 28: /* mat_op: DIV  */
 #line 65 "ap2Bison.y"
             {printf("\n*mat_op - DIV" );}
-#line 1260 "ap2Bison.tab.c"
+#line 1274 "ap2Bison.tab.c"
+    break;
+
+  case 29: /* relation: term rel_op term  */
+#line 68 "ap2Bison.y"
+                           {printf("\n*relation - term rel_op term" );}
+#line 1280 "ap2Bison.tab.c"
+    break;
+
+  case 30: /* rel_op: EQ  */
+#line 71 "ap2Bison.y"
+            {printf("\n*rel_op - EQ" );}
+#line 1286 "ap2Bison.tab.c"
+    break;
+
+  case 31: /* rel_op: NEQ  */
+#line 72 "ap2Bison.y"
+            {printf("\n*rel_op - NEQ" );}
+#line 1292 "ap2Bison.tab.c"
+    break;
+
+  case 32: /* rel_op: LT  */
+#line 73 "ap2Bison.y"
+            {printf("\n*rel_op - LT" );}
+#line 1298 "ap2Bison.tab.c"
+    break;
+
+  case 33: /* rel_op: GT  */
+#line 74 "ap2Bison.y"
+            {printf("\n*rel_op - GT" );}
+#line 1304 "ap2Bison.tab.c"
+    break;
+
+  case 34: /* rel_op: LTE  */
+#line 75 "ap2Bison.y"
+            {printf("\n*rel_op - LTE" );}
+#line 1310 "ap2Bison.tab.c"
+    break;
+
+  case 35: /* rel_op: GTE  */
+#line 76 "ap2Bison.y"
+            {printf("\n*rel_op - GTE" );}
+#line 1316 "ap2Bison.tab.c"
     break;
 
 
-#line 1264 "ap2Bison.tab.c"
+#line 1320 "ap2Bison.tab.c"
 
       default: break;
     }
@@ -1453,7 +1509,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 69 "ap2Bison.y"
+#line 81 "ap2Bison.y"
 
 
 int main(){
