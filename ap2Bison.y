@@ -15,25 +15,56 @@ void yyerror(const char* s);
 }
 
 %token VAR PROGRAM 
-%token L_BRACE R_BRACE SEMICOLON
+%token L_BRACE R_BRACE L_PAREN R_PAREN SEMICOLON
 %token INT_TYPE STRING_TYPE
-%token ID
+%token ID ASSIGN STRING INT
+%token SUM SUB MUL DIV
 
+%token condition loop in out
 %start program
 
 %%
 
-program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE R_BRACE {printf("\n*program\n ");}
+program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE cmds R_BRACE {printf("\n*program\n ");}
 ;
-declarations: 
+declarations:                          {printf("\n*declarations ");}
             | declaration declarations {printf("\n*declarations ");}
 ;
-declaration: type id {printf("\n*declaration ");}
+declaration: type ID SEMICOLON {printf("\n*declaration - type ID SEMICOLON");}
 ;
-type: INT_TYPE ID SEMICOLON{printf("\n*INT_TYPE ID SEMICOLON ");}
-    | STRING_TYPE ID SEMICOLON{printf("\n*STRING_TYPE ID SEMICOLON ");}
+type: INT_TYPE    {printf("\n*type - INT_TYPE");}
+    | STRING_TYPE {printf("\n*type - STRING_TYPE");}
 ;
-id:
+cmds:          {printf("\n*cmds ");} 
+    | cmd cmds {printf("\n*cmds ");}
+;
+cmd: att       {printf("\n*cmd - att");}
+   | condition 
+   | loop 
+   | in 
+   | out
+;
+att: ID ASSIGN value SEMICOLON {printf("\n*att - ID ASSIGN value SEMICOLON ");}
+;
+value: term     {printf("\n*value - term ");}
+     | relation {printf("\n*value - relation ");}
+     | STRING   {printf("\n*value - STRING ");}
+;
+term: INT      {printf("\n*term - INT ");}
+    | ID       {printf("\n*term - ID ");}
+    | mat_exp  {printf("\n*term - mat_exp ");}
+;
+mat_exp: term
+       | L_PAREN term R_PAREN             {printf("\n*mat_exp - ( term )" );}
+       | term mat_op term                 {printf("\n*mat_exp - term mat_op term" );}
+       | L_PAREN term mat_op term R_PAREN {printf("\n*mat_exp - ( term mat_op term )" );}
+;
+mat_op: SUM {printf("\n*mat_op - SUM" );}
+      | SUB {printf("\n*mat_op - SUB" );}
+      | MUL {printf("\n*mat_op - MUL" );}
+      | DIV {printf("\n*mat_op - DIV" );}
+;
+relation:
 ;
 %%
 

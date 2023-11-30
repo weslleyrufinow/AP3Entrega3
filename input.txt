@@ -1,1 +1,6 @@
-VAR{}PROGRAM{}
+VAR{
+    int x;
+}PROGRAM{
+    x = 10;
+    x = (10);
+}

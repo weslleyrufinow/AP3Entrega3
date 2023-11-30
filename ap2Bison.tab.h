@@ -58,10 +58,23 @@ extern int yydebug;
     PROGRAM = 259,                 /* PROGRAM  */
     L_BRACE = 260,                 /* L_BRACE  */
     R_BRACE = 261,                 /* R_BRACE  */
-    SEMICOLON = 262,               /* SEMICOLON  */
-    INT_TYPE = 263,                /* INT_TYPE  */
-    STRING_TYPE = 264,             /* STRING_TYPE  */
-    ID = 265                       /* ID  */
+    L_PAREN = 262,                 /* L_PAREN  */
+    R_PAREN = 263,                 /* R_PAREN  */
+    SEMICOLON = 264,               /* SEMICOLON  */
+    INT_TYPE = 265,                /* INT_TYPE  */
+    STRING_TYPE = 266,             /* STRING_TYPE  */
+    ID = 267,                      /* ID  */
+    ASSIGN = 268,                  /* ASSIGN  */
+    STRING = 269,                  /* STRING  */
+    INT = 270,                     /* INT  */
+    SUM = 271,                     /* SUM  */
+    SUB = 272,                     /* SUB  */
+    MUL = 273,                     /* MUL  */
+    DIV = 274,                     /* DIV  */
+    condition = 275,               /* condition  */
+    loop = 276,                    /* loop  */
+    in = 277,                      /* in  */
+    out = 278                      /* out  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -75,7 +88,7 @@ union YYSTYPE
     int num;
     char* str;
 
-#line 79 "ap2Bison.tab.h"
+#line 92 "ap2Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
