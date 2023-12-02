@@ -28,6 +28,8 @@ LT  ("<")
 GT  (">")
 LTE ("<=")
 GTE (">=")
+IF   ("if")
+ELSE ("else")
 
 %%
 
@@ -50,11 +52,13 @@ GTE (">=")
 {MUL}         {/*printf("MUL ");*/ return MUL;}
 {DIV}         {/*printf("DIV ");*/ return DIV;}
 {EQ}          {/*printf("EQ ");*/ return EQ;}
-{NEQ}          {/*printf("NEQ ");*/ return NEQ;}
+{NEQ}         {/*printf("NEQ ");*/ return NEQ;}
 {LT}          {/*printf("LT ");*/ return LT;}
 {GT}          {/*printf("GT ");*/ return GT;}
-{LTE}          {/*printf("EQ ");*/ return EQ;}
-{GTE}          {/*printf("GTE ");*/ return GTE;}
+{LTE}         {/*printf("EQ ");*/ return LTE;}
+{GTE}         {/*printf("GTE ");*/ return GTE;}
+{IF}          {/*printf("IF ");*/  return IF;}
+{ELSE}        {/*printf("ELSE ");*/ return ELSE;}
 
 %%
 

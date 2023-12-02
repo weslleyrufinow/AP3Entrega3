@@ -20,6 +20,7 @@ void yyerror(const char* s);
 %token ID ASSIGN STRING INT
 %token SUM SUB MUL DIV
 %token EQ NEQ LT GT LTE GTE
+%token IF ELSE
 
 %token loop in out
 %start program
@@ -40,7 +41,7 @@ cmds:          {printf("\n*cmds ");}
     | cmd cmds {printf("\n*cmds ");}
 ;
 cmd: att       {printf("\n*cmd - att");}
-   | condition 
+   | condition {printf("\n*cmd - condition");}
    | loop   
    | in 
    | out
@@ -76,7 +77,7 @@ rel_op: EQ  {printf("\n*rel_op - EQ" );}
       | GTE {printf("\n*rel_op - GTE" );}
 ;
 
-condition:
+condition: IF {printf("\n*condition - if" );}
 ;
 %%
 
