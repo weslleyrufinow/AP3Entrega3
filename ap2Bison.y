@@ -37,7 +37,7 @@ declaration: type ID SEMICOLON {printf("\n*declaration - type ID SEMICOLON");}
 type: INT_TYPE    {printf("\n*type - INT_TYPE");}
     | STRING_TYPE {printf("\n*type - STRING_TYPE");}
 ;
-cmds:          {printf("\n*cmds ");} 
+cmds:          {printf("\n*cmds - null");} 
     | cmd cmds {printf("\n*cmds ");}
 ;
 cmd: att       {printf("\n*cmd - att");}
@@ -66,7 +66,8 @@ mat_op: SUM {printf("\n*mat_op - SUM" );}
       | DIV {printf("\n*mat_op - DIV" );}
 ;
 
-relation: term rel_op term {printf("\n*relation - term rel_op term" );}
+relation:                 {printf("\n*cmds - null");} 
+        |term rel_op term {printf("\n*relation - term rel_op term" );}
 ;
 
 rel_op: EQ  {printf("\n*rel_op - EQ" );}
@@ -77,7 +78,11 @@ rel_op: EQ  {printf("\n*rel_op - EQ" );}
       | GTE {printf("\n*rel_op - GTE" );}
 ;
 
-condition: IF {printf("\n*condition - if" );}
+condition: IF L_PAREN relation R_PAREN L_BRACE cmds R_BRACE else {printf("\n*condition - if");}
+;
+
+else:                          {printf("\n*condition - else null");} 
+    |ELSE L_BRACE cmds R_BRACE {printf("\n*condition - else");}
 ;
 %%
 
