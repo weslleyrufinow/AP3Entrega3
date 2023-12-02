@@ -29,7 +29,7 @@ void yyerror(const char* s);
 
 program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE cmds R_BRACE {printf("\n*program\n ");}
 ;
-declarations:                          {printf("\n*declarations ");}
+declarations:                          {printf("\n*declarations - null");}
             | declaration declarations {printf("\n*declarations ");}
 ;
 declaration: type ID SEMICOLON {printf("\n*declaration - type ID SEMICOLON");}
