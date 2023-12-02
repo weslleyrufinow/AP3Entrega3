@@ -10,10 +10,13 @@ L_BRACE  [\{]
 R_BRACE  [\}]
 L_PAREN  [\(]
 R_PAREN  [\)]
+COMMA [\,]
 SEMICOLON  [\;]
 IF   ("if")
 ELSE ("else")
 WHILE ("while")
+IN ("in")
+OUT ("out")
 IGNORAR  [ \n\t]*
 INT_TYPE ("int")
 STRING_TYPE ("string")
@@ -41,10 +44,13 @@ STRING (\"([^"]*)\")
 {R_BRACE}     {/*printf("R_BRACE ");*/ return R_BRACE;}
 {L_PAREN}     {/*printf("L_PAREN ");*/ return L_PAREN;}
 {R_PAREN}     {/*printf("R_PAREN ");*/ return R_PAREN;}
+{COMMA}       {/*printf("SEMICOLON\n");*/ return COMMA;}
 {SEMICOLON}   {/*printf("SEMICOLON\n");*/ return SEMICOLON;}
 {IF}          {/*printf("IF ");*/  return IF;}
 {ELSE}        {/*printf("ELSE ");*/ return ELSE;}
-{WHILE}        {/*printf("ELSE ");*/ return WHILE;}
+{WHILE}       {/*printf("ELSE ");*/ return WHILE;}
+{IN}          {/*printf("ELSE ");*/ return IN;}
+{OUT}         {/*printf("ELSE ");*/ return OUT;}
 {IGNORAR}     {;}
 {INT_TYPE}    {/*printf("INT_TYPE ");*/ return INT_TYPE;}
 {STRING_TYPE} {/*printf("STRING_TYPE ");*/ return STRING_TYPE;}

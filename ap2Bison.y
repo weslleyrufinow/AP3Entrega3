@@ -15,7 +15,7 @@ void yyerror(const char* s);
 }
 
 %token VAR PROGRAM 
-%token L_BRACE R_BRACE L_PAREN R_PAREN SEMICOLON
+%token L_BRACE R_BRACE L_PAREN R_PAREN SEMICOLON COMMA
 %token INT_TYPE STRING_TYPE
 %token ID ASSIGN STRING INT
 %token SUM SUB MUL DIV
@@ -23,7 +23,7 @@ void yyerror(const char* s);
 %token IF ELSE
 %token WHILE
 
-%token in out
+%token IN OUT
 %start program
 
 %%
@@ -43,9 +43,9 @@ cmds:          {printf("\n*cmds - null");}
 ;
 cmd: att       {printf("\n*cmd - att");}
    | condition {printf("\n*cmd - condition");}
-   | loop   
-   | in 
-   | out
+   | loop      {printf("\n*cmd - loop");}
+   | in        {printf("\n*cmd - in");}
+   | out       {printf("\n*cmd - out");}
 ;
 att: ID ASSIGN value SEMICOLON {printf("\n*att - ID ASSIGN value SEMICOLON ");}
 ;
@@ -67,8 +67,8 @@ mat_op: SUM {printf("\n*mat_op - SUM" );}
       | DIV {printf("\n*mat_op - DIV" );}
 ;
 
-relation:                 {printf("\n*cmds - null");} 
-        |term rel_op term {printf("\n*relation - term rel_op term" );}
+relation:                  {printf("\n*relation - null");} 
+        | term rel_op term {printf("\n*relation - term rel_op term" );}
 ;
 
 rel_op: EQ  {printf("\n*rel_op - EQ" );}
@@ -87,6 +87,23 @@ else:                          {printf("\n*condition - else null");}
 ;
 
 loop: WHILE L_PAREN relation R_PAREN L_BRACE cmds R_BRACE {printf("\n*loop");}
+;
+
+in: ID ASSIGN IN L_PAREN input R_PAREN SEMICOLON {printf("\n*in");}
+;
+
+input:           {printf("\n*in - input - null");}
+      | STRING   {printf("\n*in - input - string");}
+      | INT      {printf("\n*in - input - int");}
+;
+
+out: OUT L_PAREN outputs R_PAREN SEMICOLON {printf("\n*out");}
+;
+
+outputs:                       {printf("\n*out - null");}
+        | value                {printf("\n*out - output");}
+        | value COMMA outputs  {printf("\n*out - outputs");}
+;
 
 %%
 

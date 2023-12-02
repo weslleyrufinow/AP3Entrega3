@@ -18,10 +18,10 @@
 
 <loop>         ::= "while""(" <relation> ")""{" <cmds> "}"
 
-<in>           ::= <id> "=" "in""(" <input> ")"
-<out>          ::= "out""(" <outputs> ")"
-<outputs>      ::= <output> | <output> "," <outputs> | 
-<output>       ::= <id> | <number> | <string>
+<in>           ::= <id> "=" "in""(" <input> ")" ";"
+<out>          ::= "out""(" <outputs> ")" ";"
+<outputs>      ::= | <output> | <output> "," <outputs>
+<output>       ::= <id> | <term> | <string>
 <input>        ::= <number> | <string> 
 
 <number>       ::= <digits> | <digits> <decimal>
