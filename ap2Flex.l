@@ -11,12 +11,13 @@ R_BRACE  [\}]
 L_PAREN  [\(]
 R_PAREN  [\)]
 SEMICOLON  [\;]
+IF   ("if")
+ELSE ("else")
 IGNORAR  [ \n\t]*
 INT_TYPE ("int")
 STRING_TYPE ("string")
 ID [a-zA-Z][a-zA-Z0-9]*
 INT [+-]?[0-9]+
-STRING (\"([^"]*)\")
 ASSIGN ("=")
 SUM ("+")
 SUB ("-")
@@ -28,8 +29,8 @@ LT  ("<")
 GT  (">")
 LTE ("<=")
 GTE (">=")
-IF   ("if")
-ELSE ("else")
+STRING (\"([^"]*)\")
+
 
 %%
 
@@ -40,12 +41,13 @@ ELSE ("else")
 {L_PAREN}     {/*printf("L_PAREN ");*/ return L_PAREN;}
 {R_PAREN}     {/*printf("R_PAREN ");*/ return R_PAREN;}
 {SEMICOLON}   {/*printf("SEMICOLON\n");*/ return SEMICOLON;}
+{IF}          {/*printf("IF ");*/  return IF;}
+{ELSE}        {/*printf("ELSE ");*/ return ELSE;}
 {IGNORAR}     {;}
 {INT_TYPE}    {/*printf("INT_TYPE ");*/ return INT_TYPE;}
 {STRING_TYPE} {/*printf("STRING_TYPE ");*/ return STRING_TYPE;}
 {ID}          {/*printf("ID ");*/ return ID;}
 {INT}         {/*printf("INT ");*/ return INT;}
-{STRING}      {/*printf("STRING ");*/ return STRING;}
 {ASSIGN}      {/*printf("ASSIGN ");*/ return ASSIGN;}
 {SUM}         {/*printf("SUM ");*/ return SUM;}
 {SUB}         {/*printf("SUB ");*/ return SUB;}
@@ -57,8 +59,8 @@ ELSE ("else")
 {GT}          {/*printf("GT ");*/ return GT;}
 {LTE}         {/*printf("EQ ");*/ return LTE;}
 {GTE}         {/*printf("GTE ");*/ return GTE;}
-{IF}          {/*printf("IF ");*/  return IF;}
-{ELSE}        {/*printf("ELSE ");*/ return ELSE;}
+{STRING}      {/*printf("STRING ");*/ return STRING;}
+
 
 %%
 
