@@ -77,7 +77,7 @@ rel_op: EQ  {printf("\n*rel_op - EQ" );}
       | GTE {printf("\n*rel_op - GTE" );}
 ;
 
-condition: IF L_PAREN {printf("\n*condition - if" );}
+condition: IF {printf("\n*condition - if" );}
 ;
 %%
 
