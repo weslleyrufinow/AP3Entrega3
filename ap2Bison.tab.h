@@ -79,7 +79,7 @@ extern int yydebug;
     GTE = 280,                     /* GTE  */
     IF = 281,                      /* IF  */
     ELSE = 282,                    /* ELSE  */
-    loop = 283,                    /* loop  */
+    WHILE = 283,                   /* WHILE  */
     in = 284,                      /* in  */
     out = 285                      /* out  */
   };

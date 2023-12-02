@@ -21,8 +21,9 @@ void yyerror(const char* s);
 %token SUM SUB MUL DIV
 %token EQ NEQ LT GT LTE GTE
 %token IF ELSE
+%token WHILE
 
-%token loop in out
+%token in out
 %start program
 
 %%
@@ -84,6 +85,9 @@ condition: IF L_PAREN relation R_PAREN L_BRACE cmds R_BRACE else {printf("\n*con
 else:                          {printf("\n*condition - else null");} 
     |ELSE L_BRACE cmds R_BRACE {printf("\n*condition - else");}
 ;
+
+loop: WHILE L_PAREN relation R_PAREN L_BRACE cmds R_BRACE {printf("\n*loop");}
+
 %%
 
 int main(){

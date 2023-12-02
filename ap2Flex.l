@@ -13,6 +13,7 @@ R_PAREN  [\)]
 SEMICOLON  [\;]
 IF   ("if")
 ELSE ("else")
+WHILE ("while")
 IGNORAR  [ \n\t]*
 INT_TYPE ("int")
 STRING_TYPE ("string")
@@ -43,6 +44,7 @@ STRING (\"([^"]*)\")
 {SEMICOLON}   {/*printf("SEMICOLON\n");*/ return SEMICOLON;}
 {IF}          {/*printf("IF ");*/  return IF;}
 {ELSE}        {/*printf("ELSE ");*/ return ELSE;}
+{WHILE}        {/*printf("ELSE ");*/ return WHILE;}
 {IGNORAR}     {;}
 {INT_TYPE}    {/*printf("INT_TYPE ");*/ return INT_TYPE;}
 {STRING_TYPE} {/*printf("STRING_TYPE ");*/ return STRING_TYPE;}
