@@ -100,8 +100,7 @@ input:           {printf("\n*in - input - null");}
 out: OUT L_PAREN outputs R_PAREN SEMICOLON {printf("\n*out");}
 ;
 
-outputs:                       {printf("\n*out - null");}
-        | value                {printf("\n*out - output");}
+outputs:  value                {printf("\n*out - output");}
         | value COMMA outputs  {printf("\n*out - outputs");}
 ;
 

@@ -550,8 +550,8 @@ static const yytype_int8 yyrline[] =
        0,    31,    31,    33,    34,    36,    38,    39,    41,    42,
       44,    45,    46,    47,    48,    50,    52,    53,    54,    56,
       57,    58,    60,    61,    62,    64,    65,    66,    67,    70,
-      73,    74,    75,    76,    77,    78,    81,    84,    85,    88,
-      91,    94,    95,    96,    99,   102,   103,   104
+      71,    74,    75,    76,    77,    78,    79,    82,    85,    86,
+      89,    92,    95,    96,    97,   100,   103,   104
 };
 #endif
 
@@ -616,13 +616,13 @@ static const yytype_int8 yydefact[] =
 {
        0,     0,     0,     3,     1,     6,     7,     0,     3,     0,
        0,     4,     0,     0,     5,     8,     0,     0,     0,     0,
-       0,     8,    10,    11,    12,    13,    14,     0,     0,     0,
-      45,     2,     9,     0,    20,    18,    19,     0,     0,    16,
-      21,    17,     0,     0,     0,    46,     0,     0,    41,    15,
-      25,    26,    27,    28,    30,    31,    32,    33,    34,    35,
-       0,     0,     0,     0,    45,     0,    22,     0,    42,    43,
-       0,    23,    29,     8,     8,    47,    44,     0,     0,     0,
-       0,    24,    40,    37,    39,     0,    36,     8,     0,    38
+       0,     8,    10,    11,    12,    13,    14,    29,    29,    29,
+      29,     2,     9,     0,    20,    18,    19,     0,     0,    16,
+      21,    17,     0,     0,     0,    46,     0,     0,    42,    15,
+      25,    26,    27,    28,    31,    32,    33,    34,    35,    36,
+       0,     0,     0,     0,    29,     0,    22,     0,    43,    44,
+       0,    23,    30,     8,     8,    47,    45,     0,     0,     0,
+       0,    24,    41,    38,    40,     0,    37,     8,     0,    39
 };
 
 /* YYPGOTO[NTERM-NUM].  */
@@ -691,8 +691,8 @@ static const yytype_int8 yyr1[] =
        0,    32,    33,    34,    34,    35,    36,    36,    37,    37,
       38,    38,    38,    38,    38,    39,    40,    40,    40,    41,
       41,    41,    42,    42,    42,    43,    43,    43,    43,    44,
-      45,    45,    45,    45,    45,    45,    46,    47,    47,    48,
-      49,    50,    50,    50,    51,    52,    52,    52
+      44,    45,    45,    45,    45,    45,    45,    46,    47,    47,
+      48,    49,    50,    50,    50,    51,    52,    52
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
@@ -700,9 +700,9 @@ static const yytype_int8 yyr2[] =
 {
        0,     2,     8,     0,     2,     3,     1,     1,     0,     2,
        1,     1,     1,     1,     1,     4,     1,     1,     1,     1,
-       1,     1,     3,     3,     5,     1,     1,     1,     1,     3,
-       1,     1,     1,     1,     1,     1,     8,     0,     4,     7,
-       7,     0,     1,     1,     5,     0,     1,     3
+       1,     1,     3,     3,     5,     1,     1,     1,     1,     0,
+       3,     1,     1,     1,     1,     1,     1,     8,     0,     4,
+       7,     7,     0,     1,     1,     5,     1,     3
 };
 
 
@@ -1327,105 +1327,105 @@ yyreduce:
 #line 1328 "ap2Bison.tab.c"
     break;
 
-  case 29: /* relation: term rel_op term  */
+  case 29: /* relation: %empty  */
 #line 70 "ap2Bison.y"
-                           {printf("\n*relation - term rel_op term" );}
+                           {printf("\n*relation - null");}
 #line 1334 "ap2Bison.tab.c"
     break;
 
-  case 30: /* rel_op: EQ  */
-#line 73 "ap2Bison.y"
-            {printf("\n*rel_op - EQ" );}
+  case 30: /* relation: term rel_op term  */
+#line 71 "ap2Bison.y"
+                           {printf("\n*relation - term rel_op term" );}
 #line 1340 "ap2Bison.tab.c"
     break;
 
-  case 31: /* rel_op: NEQ  */
+  case 31: /* rel_op: EQ  */
 #line 74 "ap2Bison.y"
-            {printf("\n*rel_op - NEQ" );}
+            {printf("\n*rel_op - EQ" );}
 #line 1346 "ap2Bison.tab.c"
     break;
 
-  case 32: /* rel_op: LT  */
+  case 32: /* rel_op: NEQ  */
 #line 75 "ap2Bison.y"
-            {printf("\n*rel_op - LT" );}
+            {printf("\n*rel_op - NEQ" );}
 #line 1352 "ap2Bison.tab.c"
     break;
 
-  case 33: /* rel_op: GT  */
+  case 33: /* rel_op: LT  */
 #line 76 "ap2Bison.y"
-            {printf("\n*rel_op - GT" );}
+            {printf("\n*rel_op - LT" );}
 #line 1358 "ap2Bison.tab.c"
     break;
 
-  case 34: /* rel_op: LTE  */
+  case 34: /* rel_op: GT  */
 #line 77 "ap2Bison.y"
-            {printf("\n*rel_op - LTE" );}
+            {printf("\n*rel_op - GT" );}
 #line 1364 "ap2Bison.tab.c"
     break;
 
-  case 35: /* rel_op: GTE  */
+  case 35: /* rel_op: LTE  */
 #line 78 "ap2Bison.y"
-            {printf("\n*rel_op - GTE" );}
+            {printf("\n*rel_op - LTE" );}
 #line 1370 "ap2Bison.tab.c"
     break;
 
-  case 36: /* condition: IF L_PAREN relation R_PAREN L_BRACE cmds R_BRACE else  */
-#line 81 "ap2Bison.y"
-                                                                 {printf("\n*condition - if");}
+  case 36: /* rel_op: GTE  */
+#line 79 "ap2Bison.y"
+            {printf("\n*rel_op - GTE" );}
 #line 1376 "ap2Bison.tab.c"
     break;
 
-  case 37: /* else: %empty  */
-#line 84 "ap2Bison.y"
-                               {printf("\n*condition - else null");}
+  case 37: /* condition: IF L_PAREN relation R_PAREN L_BRACE cmds R_BRACE else  */
+#line 82 "ap2Bison.y"
+                                                                 {printf("\n*condition - if");}
 #line 1382 "ap2Bison.tab.c"
     break;
 
-  case 38: /* else: ELSE L_BRACE cmds R_BRACE  */
+  case 38: /* else: %empty  */
 #line 85 "ap2Bison.y"
-                               {printf("\n*condition - else");}
+                               {printf("\n*condition - else null");}
 #line 1388 "ap2Bison.tab.c"
     break;
 
-  case 39: /* loop: WHILE L_PAREN relation R_PAREN L_BRACE cmds R_BRACE  */
-#line 88 "ap2Bison.y"
-                                                          {printf("\n*loop");}
+  case 39: /* else: ELSE L_BRACE cmds R_BRACE  */
+#line 86 "ap2Bison.y"
+                               {printf("\n*condition - else");}
 #line 1394 "ap2Bison.tab.c"
     break;
 
-  case 40: /* in: ID ASSIGN IN L_PAREN input R_PAREN SEMICOLON  */
-#line 91 "ap2Bison.y"
-                                                 {printf("\n*in");}
+  case 40: /* loop: WHILE L_PAREN relation R_PAREN L_BRACE cmds R_BRACE  */
+#line 89 "ap2Bison.y"
+                                                          {printf("\n*loop");}
 #line 1400 "ap2Bison.tab.c"
     break;
 
-  case 41: /* input: %empty  */
-#line 94 "ap2Bison.y"
-                 {printf("\n*in - input - null");}
+  case 41: /* in: ID ASSIGN IN L_PAREN input R_PAREN SEMICOLON  */
+#line 92 "ap2Bison.y"
+                                                 {printf("\n*in");}
 #line 1406 "ap2Bison.tab.c"
     break;
 
-  case 42: /* input: STRING  */
+  case 42: /* input: %empty  */
 #line 95 "ap2Bison.y"
-                 {printf("\n*in - input - string");}
+                 {printf("\n*in - input - null");}
 #line 1412 "ap2Bison.tab.c"
     break;
 
-  case 43: /* input: INT  */
+  case 43: /* input: STRING  */
 #line 96 "ap2Bison.y"
-                 {printf("\n*in - input - int");}
+                 {printf("\n*in - input - string");}
 #line 1418 "ap2Bison.tab.c"
     break;
 
-  case 44: /* out: OUT L_PAREN outputs R_PAREN SEMICOLON  */
-#line 99 "ap2Bison.y"
-                                           {printf("\n*out");}
+  case 44: /* input: INT  */
+#line 97 "ap2Bison.y"
+                 {printf("\n*in - input - int");}
 #line 1424 "ap2Bison.tab.c"
     break;
 
-  case 45: /* outputs: %empty  */
-#line 102 "ap2Bison.y"
-                               {printf("\n*out - null");}
+  case 45: /* out: OUT L_PAREN outputs R_PAREN SEMICOLON  */
+#line 100 "ap2Bison.y"
+                                           {printf("\n*out");}
 #line 1430 "ap2Bison.tab.c"
     break;
 
