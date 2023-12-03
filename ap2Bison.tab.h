@@ -63,26 +63,28 @@ extern int yydebug;
     SEMICOLON = 264,               /* SEMICOLON  */
     COMMA = 265,                   /* COMMA  */
     INT_TYPE = 266,                /* INT_TYPE  */
-    STRING_TYPE = 267,             /* STRING_TYPE  */
-    ID = 268,                      /* ID  */
-    ASSIGN = 269,                  /* ASSIGN  */
-    STRING = 270,                  /* STRING  */
-    INT = 271,                     /* INT  */
-    SUM = 272,                     /* SUM  */
-    SUB = 273,                     /* SUB  */
-    MUL = 274,                     /* MUL  */
-    DIV = 275,                     /* DIV  */
-    EQ = 276,                      /* EQ  */
-    NEQ = 277,                     /* NEQ  */
-    LT = 278,                      /* LT  */
-    GT = 279,                      /* GT  */
-    LTE = 280,                     /* LTE  */
-    GTE = 281,                     /* GTE  */
-    IF = 282,                      /* IF  */
-    ELSE = 283,                    /* ELSE  */
-    WHILE = 284,                   /* WHILE  */
-    IN = 285,                      /* IN  */
-    OUT = 286                      /* OUT  */
+    FLOAT_TYPE = 267,              /* FLOAT_TYPE  */
+    STRING_TYPE = 268,             /* STRING_TYPE  */
+    ID = 269,                      /* ID  */
+    ASSIGN = 270,                  /* ASSIGN  */
+    STRING = 271,                  /* STRING  */
+    INT = 272,                     /* INT  */
+    FLOAT = 273,                   /* FLOAT  */
+    SUM = 274,                     /* SUM  */
+    SUB = 275,                     /* SUB  */
+    MUL = 276,                     /* MUL  */
+    DIV = 277,                     /* DIV  */
+    EQ = 278,                      /* EQ  */
+    NEQ = 279,                     /* NEQ  */
+    LT = 280,                      /* LT  */
+    GT = 281,                      /* GT  */
+    LTE = 282,                     /* LTE  */
+    GTE = 283,                     /* GTE  */
+    IF = 284,                      /* IF  */
+    ELSE = 285,                    /* ELSE  */
+    WHILE = 286,                   /* WHILE  */
+    IN = 287,                      /* IN  */
+    OUT = 288                      /* OUT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -96,7 +98,7 @@ union YYSTYPE
     int num;
     char* str;
 
-#line 100 "ap2Bison.tab.h"
+#line 102 "ap2Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

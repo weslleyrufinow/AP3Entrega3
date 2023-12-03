@@ -16,8 +16,8 @@ void yyerror(const char* s);
 
 %token VAR PROGRAM 
 %token L_BRACE R_BRACE L_PAREN R_PAREN SEMICOLON COMMA
-%token INT_TYPE STRING_TYPE
-%token ID ASSIGN STRING INT
+%token INT_TYPE FLOAT_TYPE STRING_TYPE
+%token ID ASSIGN STRING INT FLOAT
 %token SUM SUB MUL DIV
 %token EQ NEQ LT GT LTE GTE
 %token IF ELSE
@@ -35,8 +35,9 @@ declarations:                          {printf("\n*declarations - null");}
 ;
 declaration: type ID SEMICOLON {printf("\n*declaration - type ID SEMICOLON");}
 ;
-type: INT_TYPE    {printf("\n*type - INT_TYPE");}
-    | STRING_TYPE {printf("\n*type - STRING_TYPE");}
+type: INT_TYPE      {printf("\n*type - INT_TYPE");}
+    | FLOAT_TYPE    {printf("\n*type - FLOAT_TYPE");}
+    | STRING_TYPE   {printf("\n*type - STRING_TYPE");}
 ;
 cmds:          {printf("\n*cmds - null");} 
     | cmd cmds {printf("\n*cmds ");}
@@ -53,18 +54,20 @@ value: term     {printf("\n*value - term ");}
      | relation {printf("\n*value - relation ");}
      | STRING   {printf("\n*value - STRING ");}
 ;
-term: INT      {printf("\n*term - INT ");}
+term: INT      {printf("\n*term - INT");}
+    | FLOAT    {printf("\n*term - FLOAT");}
     | ID       {printf("\n*term - ID ");}
-    | mat_exp  {printf("\n*term - mat_exp ");}
+    | exp      {printf("\n*term - exp ");}
 ;
-mat_exp: L_PAREN term R_PAREN             {printf("\n*mat_exp - ( term )" );}
-       | term mat_op term                 {printf("\n*mat_exp - term mat_op term" );}
-       | L_PAREN term mat_op term R_PAREN {printf("\n*mat_exp - ( term mat_op term )" );}
+exp:  L_PAREN term R_PAREN     {printf("\n*exp - ( term )" );}
+    | mat_op                   {printf("\n*exp - term mat_op term" );}
+    | L_PAREN mat_op R_PAREN   {printf("\n*exp - ( term mat_op term )" );}
 ;
-mat_op: SUM {printf("\n*mat_op - SUM" );}
-      | SUB {printf("\n*mat_op - SUB" );}
-      | MUL {printf("\n*mat_op - MUL" );}
-      | DIV {printf("\n*mat_op - DIV" );}
+
+mat_op: term SUM term {printf("\n*mat_op - SUM" );}
+      | term SUB term {printf("\n*mat_op - SUB" );}
+      | term MUL term {printf("\n*mat_op - MUL" );}
+      | term DIV term {printf("\n*mat_op - DIV" );}
 ;
 
 relation:                  {printf("\n*relation - null");} 

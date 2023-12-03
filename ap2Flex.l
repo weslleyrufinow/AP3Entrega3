@@ -19,8 +19,11 @@ IN ("in")
 OUT ("out")
 IGNORAR  [ \n\t]*
 INT_TYPE ("int")
+FLOAT_TYPE ("float")
 STRING_TYPE ("string")
 ID [a-zA-Z][a-zA-Z0-9]*
+DOT [\.]
+FLOAT [+-]?[0-9]+(\.[0-9]+)+
 INT [+-]?[0-9]+
 ASSIGN ("=")
 SUM ("+")
@@ -34,7 +37,6 @@ GT  (">")
 LTE ("<=")
 GTE (">=")
 STRING (\"([^"]*)\")
-
 
 %%
 
@@ -53,8 +55,11 @@ STRING (\"([^"]*)\")
 {OUT}         {/*printf("ELSE ");*/ return OUT;}
 {IGNORAR}     {;}
 {INT_TYPE}    {/*printf("INT_TYPE ");*/ return INT_TYPE;}
+{FLOAT_TYPE}    {/*printf("INT_TYPE ");*/ return FLOAT_TYPE;}
 {STRING_TYPE} {/*printf("STRING_TYPE ");*/ return STRING_TYPE;}
 {ID}          {/*printf("ID ");*/ return ID;}
+{DOT}         {/*printf("INT ");*/ return DOT;}
+{FLOAT}       {/*printf("INT ");*/ return FLOAT;}
 {INT}         {/*printf("INT ");*/ return INT;}
 {ASSIGN}      {/*printf("ASSIGN ");*/ return ASSIGN;}
 {SUM}         {/*printf("SUM ");*/ return SUM;}
