@@ -620,7 +620,7 @@ static const yytype_int8 yydefact[] =
        0,     0,     0,     3,     1,     6,     7,     8,     0,     3,
        0,     0,     4,     0,     0,     5,     9,     0,     0,     0,
        0,     0,     9,    11,    12,    13,    14,    15,    31,    31,
-      31,    31,     2,    10,     0,    22,    19,    20,    21,     0,
+      31,    31,     2,    10,     0,    22,    19,    21,    20,     0,
        0,    17,    23,    25,    18,     0,     0,     0,    48,     0,
        0,    25,    44,    16,     0,     0,     0,     0,    33,    34,
       35,    36,    37,    38,     0,     0,     0,    31,     0,    24,
@@ -1280,15 +1280,15 @@ yyreduce:
 #line 1281 "ap2Bison.tab.c"
     break;
 
-  case 20: /* term: INT  */
+  case 20: /* term: FLOAT  */
 #line 57 "ap2Bison.y"
-               {printf("\n*term - INT");}
+               {printf("\n*term - FLOAT");}
 #line 1287 "ap2Bison.tab.c"
     break;
 
-  case 21: /* term: FLOAT  */
+  case 21: /* term: INT  */
 #line 58 "ap2Bison.y"
-               {printf("\n*term - FLOAT");}
+               {printf("\n*term - INT");}
 #line 1293 "ap2Bison.tab.c"
     break;
 

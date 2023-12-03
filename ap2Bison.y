@@ -54,8 +54,8 @@ value: term     {printf("\n*value - term ");}
      | relation {printf("\n*value - relation ");}
      | STRING   {printf("\n*value - STRING ");}
 ;
-term: INT      {printf("\n*term - INT");}
-    | FLOAT    {printf("\n*term - FLOAT");}
+term: FLOAT    {printf("\n*term - FLOAT");} 
+    | INT      {printf("\n*term - INT");}
     | ID       {printf("\n*term - ID ");}
     | exp      {printf("\n*term - exp ");}
 ;
