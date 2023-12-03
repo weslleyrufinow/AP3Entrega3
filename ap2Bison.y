@@ -10,7 +10,8 @@ void yyerror(const char* s);
 %}
 
 %union {
-    int num;
+    int numint;
+    float numfloat;
     char* str;
 }
 

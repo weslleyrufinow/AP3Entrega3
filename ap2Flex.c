@@ -364,10 +364,10 @@ struct yy_trans_info
 static const flex_int16_t yy_accept[72] =
     {   0,
        14,   14,   34,   33,   14,   33,   33,    5,    6,   24,
-       22,    7,   23,   25,   19,    8,   28,   21,   29,   18,
+       22,    7,   23,   25,   20,    8,   28,   21,   29,   18,
        18,   18,   18,   18,   18,   18,   18,   18,    3,    4,
-       14,   27,    0,   32,   19,   20,   30,   26,   31,   18,
-       18,   18,   18,   18,    9,   12,   18,   18,   18,   20,
+       14,   27,    0,   32,   20,   19,   30,   26,   31,   18,
+       18,   18,   18,   18,    9,   12,   18,   18,   18,   19,
        18,    1,   18,   18,   15,   13,   18,   18,   18,   10,
        18,   18,   18,   18,   16,   18,   11,   18,   17,    2,
         0
@@ -776,67 +776,67 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 42 "ap2Flex.l"
-{/*printf("VAR\n");*/ return VAR;}
+{return VAR;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 43 "ap2Flex.l"
-{/*printf("\nPROGRAM\n");*/ return PROGRAM;}
+{return PROGRAM;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 44 "ap2Flex.l"
-{/*printf("L_BRACE ");*/ return L_BRACE;}
+{return L_BRACE;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 45 "ap2Flex.l"
-{/*printf("R_BRACE ");*/ return R_BRACE;}
+{return R_BRACE;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 46 "ap2Flex.l"
-{/*printf("L_PAREN ");*/ return L_PAREN;}
+{return L_PAREN;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 47 "ap2Flex.l"
-{/*printf("R_PAREN ");*/ return R_PAREN;}
+{return R_PAREN;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 48 "ap2Flex.l"
-{/*printf("SEMICOLON\n");*/ return COMMA;}
+{return COMMA;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 49 "ap2Flex.l"
-{/*printf("SEMICOLON\n");*/ return SEMICOLON;}
+{return SEMICOLON;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 50 "ap2Flex.l"
-{/*printf("IF ");*/  return IF;}
+{return IF;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 51 "ap2Flex.l"
-{/*printf("ELSE ");*/ return ELSE;}
+{return ELSE;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 52 "ap2Flex.l"
-{/*printf("ELSE ");*/ return WHILE;}
+{return WHILE;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 53 "ap2Flex.l"
-{/*printf("ELSE ");*/ return IN;}
+{return IN;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 54 "ap2Flex.l"
-{/*printf("ELSE ");*/ return OUT;}
+{return OUT;}
 	YY_BREAK
 case 14:
 /* rule 14 can match eol */
@@ -847,93 +847,93 @@ YY_RULE_SETUP
 case 15:
 YY_RULE_SETUP
 #line 56 "ap2Flex.l"
-{/*printf("INT_TYPE ");*/ return INT_TYPE;}
+{return INT_TYPE;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 57 "ap2Flex.l"
-{/*printf("INT_TYPE ");*/ return FLOAT_TYPE;}
+{return FLOAT_TYPE;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 58 "ap2Flex.l"
-{/*printf("STRING_TYPE ");*/ return STRING_TYPE;}
+{return STRING_TYPE;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 59 "ap2Flex.l"
-{/*printf("ID ");*/ return ID;}
+{yylval.str = strdup(yytext); return ID;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 60 "ap2Flex.l"
-{/*printf("INT ");*/ return INT;}
+{yylval.numfloat = atoi(yytext); return FLOAT;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 61 "ap2Flex.l"
-{/*printf("INT ");*/ return FLOAT;}
+{yylval.numint = atoi(yytext); return INT;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 62 "ap2Flex.l"
-{/*printf("ASSIGN ");*/ return ASSIGN;}
+{return ASSIGN;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 63 "ap2Flex.l"
-{/*printf("SUM ");*/ return SUM;}
+{return SUM;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 64 "ap2Flex.l"
-{/*printf("SUB ");*/ return SUB;}
+{return SUB;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 65 "ap2Flex.l"
-{/*printf("MUL ");*/ return MUL;}
+{return MUL;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 66 "ap2Flex.l"
-{/*printf("DIV ");*/ return DIV;}
+{return DIV;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 67 "ap2Flex.l"
-{/*printf("EQ ");*/ return EQ;}
+{return EQ;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 68 "ap2Flex.l"
-{/*printf("NEQ ");*/ return NEQ;}
+{return NEQ;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 69 "ap2Flex.l"
-{/*printf("LT ");*/ return LT;}
+{return LT;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 70 "ap2Flex.l"
-{/*printf("GT ");*/ return GT;}
+{return GT;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 71 "ap2Flex.l"
-{/*printf("EQ ");*/ return LTE;}
+{return LTE;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
 #line 72 "ap2Flex.l"
-{/*printf("GTE ");*/ return GTE;}
+{return GTE;}
 	YY_BREAK
 case 32:
 /* rule 32 can match eol */
 YY_RULE_SETUP
 #line 73 "ap2Flex.l"
-{/*printf("STRING ");*/ return STRING;}
+{return STRING;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP

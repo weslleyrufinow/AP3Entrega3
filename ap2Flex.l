@@ -17,7 +17,7 @@ ELSE        ("else")
 WHILE       ("while")
 IN          ("in")
 OUT         ("out")
-IGNORE     [ \n\t]*
+IGNORE      [ \n\t]*
 INT_TYPE    ("int")
 FLOAT_TYPE  ("float")
 STRING_TYPE ("string")
@@ -56,9 +56,9 @@ STRING      (\"([^"]*)\")
 {INT_TYPE}    {return INT_TYPE;}
 {FLOAT_TYPE}  {return FLOAT_TYPE;}
 {STRING_TYPE} {return STRING_TYPE;}
-{ID}          {return ID;}
-{INT}         {return INT;}
-{FLOAT}       {return FLOAT;}
+{ID}          {yylval.str = strdup(yytext); return ID;}
+{FLOAT}       {yylval.numfloat = atoi(yytext); return FLOAT;}
+{INT}         {yylval.numint = atoi(yytext); return INT;}
 {ASSIGN}      {return ASSIGN;}
 {SUM}         {return SUM;}
 {SUB}         {return SUB;}

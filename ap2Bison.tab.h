@@ -95,10 +95,11 @@ union YYSTYPE
 {
 #line 12 "ap2Bison.y"
 
-    int num;
+    int numint;
+    float numfloat;
     char* str;
 
-#line 102 "ap2Bison.tab.h"
+#line 103 "ap2Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
