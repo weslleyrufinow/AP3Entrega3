@@ -57,8 +57,8 @@ STRING      (\"([^"]*)\")
 {FLOAT_TYPE}  {return FLOAT_TYPE;}
 {STRING_TYPE} {return STRING_TYPE;}
 {ID}          {yylval.str = strdup(yytext); return ID;}
-{FLOAT}       {yylval.numfloat = atoi(yytext); return FLOAT;}
-{INT}         {yylval.numint = atoi(yytext); return INT;}
+{FLOAT}       {yylval.str = strdup(yytext); return FLOAT;}
+{INT}         {yylval.str = strdup(yytext); return INT;}
 {ASSIGN}      {return ASSIGN;}
 {SUM}         {return SUM;}
 {SUB}         {return SUB;}
