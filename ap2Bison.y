@@ -93,16 +93,16 @@ loop: WHILE L_PAREN relation R_PAREN L_BRACE cmds R_BRACE {printf("\n*loop");}
 in: ID ASSIGN IN L_PAREN input R_PAREN SEMICOLON          {printf("\n*in");}
 ;
 
-input:                                                    {printf("\n*in - input - null");}
-      | STRING                                            {printf("\n*in - input - string");}
-      | INT                                               {printf("\n*in - input - int");}
+input:                                 {printf("\n*in - input - null");}
+      | STRING                         {printf("\n*in - input - string");}
+      | INT                            {printf("\n*in - input - int");}
 ;
 
 out: OUT L_PAREN outputs R_PAREN SEMICOLON {printf("\n*out");}
 ;
  
-outputs:  value                                           {printf("\n*out - output");}
-        | value COMMA outputs                             {printf("\n*out - outputs");}
+outputs:  value                        {printf("\n*out - output");}
+        | value COMMA outputs          {printf("\n*out - outputs");}
 ;
 
 %%
