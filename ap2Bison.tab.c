@@ -549,11 +549,11 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    31,    31,    33,    34,    36,    38,    39,    40,    42,
-      43,    45,    46,    47,    48,    49,    51,    53,    54,    55,
-      57,    58,    59,    60,    62,    63,    64,    67,    68,    69,
-      70,    73,    74,    77,    78,    79,    80,    81,    82,    85,
-      88,    89,    92,    95,    98,    99,   100,   103,   106,   107
+       0,    29,    29,    31,    32,    34,    36,    37,    38,    40,
+      41,    43,    44,    45,    46,    47,    49,    51,    52,    53,
+      55,    56,    57,    58,    60,    61,    62,    65,    66,    67,
+      68,    71,    72,    75,    76,    77,    78,    79,    80,    83,
+      86,    87,    90,    93,    97,    98,    99,   102,   105,   106
 };
 #endif
 
@@ -1173,289 +1173,289 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE cmds R_BRACE  */
-#line 31 "ap2Bison.y"
+#line 29 "ap2Bison.y"
                                                                        {printf("\n*program\n ");}
 #line 1179 "ap2Bison.tab.c"
     break;
 
   case 3: /* declarations: %empty  */
-#line 33 "ap2Bison.y"
+#line 31 "ap2Bison.y"
                                        {printf("\n*declarations - null");}
 #line 1185 "ap2Bison.tab.c"
     break;
 
   case 4: /* declarations: declaration declarations  */
-#line 34 "ap2Bison.y"
+#line 32 "ap2Bison.y"
                                        {printf("\n*declarations ");}
 #line 1191 "ap2Bison.tab.c"
     break;
 
   case 5: /* declaration: type ID SEMICOLON  */
-#line 36 "ap2Bison.y"
+#line 34 "ap2Bison.y"
                                        {printf("\n*declaration - type ID SEMICOLON");}
 #line 1197 "ap2Bison.tab.c"
     break;
 
   case 6: /* type: INT_TYPE  */
-#line 38 "ap2Bison.y"
+#line 36 "ap2Bison.y"
                                        {printf("\n*type - INT_TYPE");}
 #line 1203 "ap2Bison.tab.c"
     break;
 
   case 7: /* type: FLOAT_TYPE  */
-#line 39 "ap2Bison.y"
+#line 37 "ap2Bison.y"
                                        {printf("\n*type - FLOAT_TYPE");}
 #line 1209 "ap2Bison.tab.c"
     break;
 
   case 8: /* type: STRING_TYPE  */
-#line 40 "ap2Bison.y"
+#line 38 "ap2Bison.y"
                                        {printf("\n*type - STRING_TYPE");}
 #line 1215 "ap2Bison.tab.c"
     break;
 
   case 9: /* cmds: %empty  */
-#line 42 "ap2Bison.y"
+#line 40 "ap2Bison.y"
                                        {printf("\n*cmds - null");}
 #line 1221 "ap2Bison.tab.c"
     break;
 
   case 10: /* cmds: cmd cmds  */
-#line 43 "ap2Bison.y"
+#line 41 "ap2Bison.y"
                                        {printf("\n*cmds ");}
 #line 1227 "ap2Bison.tab.c"
     break;
 
   case 11: /* cmd: att  */
-#line 45 "ap2Bison.y"
+#line 43 "ap2Bison.y"
                                        {printf("\n*cmd - att");}
 #line 1233 "ap2Bison.tab.c"
     break;
 
   case 12: /* cmd: condition  */
-#line 46 "ap2Bison.y"
+#line 44 "ap2Bison.y"
                                        {printf("\n*cmd - condition");}
 #line 1239 "ap2Bison.tab.c"
     break;
 
   case 13: /* cmd: loop  */
-#line 47 "ap2Bison.y"
+#line 45 "ap2Bison.y"
                                        {printf("\n*cmd - loop");}
 #line 1245 "ap2Bison.tab.c"
     break;
 
   case 14: /* cmd: in  */
-#line 48 "ap2Bison.y"
+#line 46 "ap2Bison.y"
                                        {printf("\n*cmd - in");}
 #line 1251 "ap2Bison.tab.c"
     break;
 
   case 15: /* cmd: out  */
-#line 49 "ap2Bison.y"
+#line 47 "ap2Bison.y"
                                        {printf("\n*cmd - out");}
 #line 1257 "ap2Bison.tab.c"
     break;
 
   case 16: /* att: ID ASSIGN value SEMICOLON  */
-#line 51 "ap2Bison.y"
+#line 49 "ap2Bison.y"
                                        {printf("\n*att - ID ASSIGN value SEMICOLON ");}
 #line 1263 "ap2Bison.tab.c"
     break;
 
   case 17: /* value: term  */
-#line 53 "ap2Bison.y"
+#line 51 "ap2Bison.y"
                                        {printf("\n*value - term ");}
 #line 1269 "ap2Bison.tab.c"
     break;
 
   case 18: /* value: relation  */
-#line 54 "ap2Bison.y"
+#line 52 "ap2Bison.y"
                                        {printf("\n*value - relation ");}
 #line 1275 "ap2Bison.tab.c"
     break;
 
   case 19: /* value: STRING  */
-#line 55 "ap2Bison.y"
+#line 53 "ap2Bison.y"
                                        {printf("\n*value - STRING ");}
 #line 1281 "ap2Bison.tab.c"
     break;
 
   case 20: /* term: FLOAT  */
-#line 57 "ap2Bison.y"
+#line 55 "ap2Bison.y"
                                        {printf("\n*term - FLOAT");}
 #line 1287 "ap2Bison.tab.c"
     break;
 
   case 21: /* term: INT  */
-#line 58 "ap2Bison.y"
+#line 56 "ap2Bison.y"
                                        {printf("\n*term - INT");}
 #line 1293 "ap2Bison.tab.c"
     break;
 
   case 22: /* term: ID  */
-#line 59 "ap2Bison.y"
+#line 57 "ap2Bison.y"
                                        {printf("\n*term - ID ");}
 #line 1299 "ap2Bison.tab.c"
     break;
 
   case 23: /* term: exp  */
-#line 60 "ap2Bison.y"
+#line 58 "ap2Bison.y"
                                        {printf("\n*term - exp ");}
 #line 1305 "ap2Bison.tab.c"
     break;
 
   case 24: /* exp: L_PAREN term R_PAREN  */
-#line 62 "ap2Bison.y"
+#line 60 "ap2Bison.y"
                                        {printf("\n*exp - ( term )" );}
 #line 1311 "ap2Bison.tab.c"
     break;
 
   case 25: /* exp: mat_op  */
-#line 63 "ap2Bison.y"
+#line 61 "ap2Bison.y"
                                        {printf("\n*exp - term mat_op term" );}
 #line 1317 "ap2Bison.tab.c"
     break;
 
   case 26: /* exp: L_PAREN mat_op R_PAREN  */
-#line 64 "ap2Bison.y"
+#line 62 "ap2Bison.y"
                                        {printf("\n*exp - ( term mat_op term )" );}
 #line 1323 "ap2Bison.tab.c"
     break;
 
   case 27: /* mat_op: term SUM term  */
-#line 67 "ap2Bison.y"
+#line 65 "ap2Bison.y"
                                        {printf("\n*mat_op - SUM" );}
 #line 1329 "ap2Bison.tab.c"
     break;
 
   case 28: /* mat_op: term SUB term  */
-#line 68 "ap2Bison.y"
+#line 66 "ap2Bison.y"
                                        {printf("\n*mat_op - SUB" );}
 #line 1335 "ap2Bison.tab.c"
     break;
 
   case 29: /* mat_op: term MUL term  */
-#line 69 "ap2Bison.y"
+#line 67 "ap2Bison.y"
                                        {printf("\n*mat_op - MUL" );}
 #line 1341 "ap2Bison.tab.c"
     break;
 
   case 30: /* mat_op: term DIV term  */
-#line 70 "ap2Bison.y"
+#line 68 "ap2Bison.y"
                                        {printf("\n*mat_op - DIV" );}
 #line 1347 "ap2Bison.tab.c"
     break;
 
   case 31: /* relation: %empty  */
-#line 73 "ap2Bison.y"
+#line 71 "ap2Bison.y"
                                        {printf("\n*relation - null");}
 #line 1353 "ap2Bison.tab.c"
     break;
 
   case 32: /* relation: term rel_op term  */
-#line 74 "ap2Bison.y"
+#line 72 "ap2Bison.y"
                                        {printf("\n*relation - term rel_op term" );}
 #line 1359 "ap2Bison.tab.c"
     break;
 
   case 33: /* rel_op: EQ  */
-#line 77 "ap2Bison.y"
+#line 75 "ap2Bison.y"
                                        {printf("\n*rel_op - EQ" );}
 #line 1365 "ap2Bison.tab.c"
     break;
 
   case 34: /* rel_op: NEQ  */
-#line 78 "ap2Bison.y"
+#line 76 "ap2Bison.y"
                                        {printf("\n*rel_op - NEQ" );}
 #line 1371 "ap2Bison.tab.c"
     break;
 
   case 35: /* rel_op: LT  */
-#line 79 "ap2Bison.y"
+#line 77 "ap2Bison.y"
                                        {printf("\n*rel_op - LT" );}
 #line 1377 "ap2Bison.tab.c"
     break;
 
   case 36: /* rel_op: GT  */
-#line 80 "ap2Bison.y"
+#line 78 "ap2Bison.y"
                                        {printf("\n*rel_op - GT" );}
 #line 1383 "ap2Bison.tab.c"
     break;
 
   case 37: /* rel_op: LTE  */
-#line 81 "ap2Bison.y"
+#line 79 "ap2Bison.y"
                                        {printf("\n*rel_op - LTE" );}
 #line 1389 "ap2Bison.tab.c"
     break;
 
   case 38: /* rel_op: GTE  */
-#line 82 "ap2Bison.y"
+#line 80 "ap2Bison.y"
                                        {printf("\n*rel_op - GTE" );}
 #line 1395 "ap2Bison.tab.c"
     break;
 
   case 39: /* condition: IF L_PAREN relation R_PAREN L_BRACE cmds R_BRACE else  */
-#line 85 "ap2Bison.y"
+#line 83 "ap2Bison.y"
                                                                  {printf("\n*condition - if");}
 #line 1401 "ap2Bison.tab.c"
     break;
 
   case 40: /* else: %empty  */
-#line 88 "ap2Bison.y"
+#line 86 "ap2Bison.y"
                                        {printf("\n*condition - else null");}
 #line 1407 "ap2Bison.tab.c"
     break;
 
   case 41: /* else: ELSE L_BRACE cmds R_BRACE  */
-#line 89 "ap2Bison.y"
+#line 87 "ap2Bison.y"
                                        {printf("\n*condition - else");}
 #line 1413 "ap2Bison.tab.c"
     break;
 
   case 42: /* loop: WHILE L_PAREN relation R_PAREN L_BRACE cmds R_BRACE  */
-#line 92 "ap2Bison.y"
+#line 90 "ap2Bison.y"
                                                           {printf("\n*loop");}
 #line 1419 "ap2Bison.tab.c"
     break;
 
   case 43: /* in: ID ASSIGN IN L_PAREN input R_PAREN SEMICOLON  */
-#line 95 "ap2Bison.y"
-                                                          {printf("\n*in");}
+#line 94 "ap2Bison.y"
+                                       {printf("\n*in");}
 #line 1425 "ap2Bison.tab.c"
     break;
 
   case 44: /* input: %empty  */
-#line 98 "ap2Bison.y"
+#line 97 "ap2Bison.y"
                                        {printf("\n*in - input - null");}
 #line 1431 "ap2Bison.tab.c"
     break;
 
   case 45: /* input: STRING  */
-#line 99 "ap2Bison.y"
+#line 98 "ap2Bison.y"
                                        {printf("\n*in - input - string");}
 #line 1437 "ap2Bison.tab.c"
     break;
 
   case 46: /* input: INT  */
-#line 100 "ap2Bison.y"
+#line 99 "ap2Bison.y"
                                        {printf("\n*in - input - int");}
 #line 1443 "ap2Bison.tab.c"
     break;
 
   case 47: /* out: OUT L_PAREN outputs R_PAREN SEMICOLON  */
-#line 103 "ap2Bison.y"
+#line 102 "ap2Bison.y"
                                            {printf("\n*out");}
 #line 1449 "ap2Bison.tab.c"
     break;
 
   case 48: /* outputs: value  */
-#line 106 "ap2Bison.y"
+#line 105 "ap2Bison.y"
                                        {printf("\n*out - output");}
 #line 1455 "ap2Bison.tab.c"
     break;
 
   case 49: /* outputs: value COMMA outputs  */
-#line 107 "ap2Bison.y"
+#line 106 "ap2Bison.y"
                                        {printf("\n*out - outputs");}
 #line 1461 "ap2Bison.tab.c"
     break;
@@ -1654,7 +1654,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 110 "ap2Bison.y"
+#line 109 "ap2Bison.y"
 
 
 int main(){

@@ -867,12 +867,12 @@ YY_RULE_SETUP
 case 19:
 YY_RULE_SETUP
 #line 60 "ap2Flex.l"
-{yylval.numfloat = atoi(yytext); return FLOAT;}
+{yylval.str = strdup(yytext); return FLOAT;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 61 "ap2Flex.l"
-{yylval.numint = atoi(yytext); return INT;}
+{yylval.str = strdup(yytext); return INT;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
