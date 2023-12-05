@@ -27,87 +27,87 @@ void yyerror(const char* s);
 %%
 
 program: VAR L_BRACE declarations R_BRACE PROGRAM L_BRACE cmds R_BRACE 
-                                       {printf("\n*program\n ");}
+                                       {printf("loadI 0 => r1\n");}
 ;
-declarations:                          {printf("\n*declarations - null");}
-            | declaration declarations {printf("\n*declarations ");}
+declarations:                          {}
+            | declaration declarations {}
 ;
-declaration: type ID SEMICOLON         {printf("\n*declaration - type ID SEMICOLON");}
+declaration: type ID SEMICOLON         {printf("loadI 0 => r1\n");}
 ;
-type: INT_TYPE                         {printf("\n*type - INT_TYPE");}
-    | FLOAT_TYPE                       {printf("\n*type - FLOAT_TYPE");}
-    | STRING_TYPE                      {printf("\n*type - STRING_TYPE");}
+type: INT_TYPE                         {printf("loadI 0 => r1\n");}
+    | FLOAT_TYPE                       {printf("loadI 0 => r1\n");}
+    | STRING_TYPE                      {printf("loadI 0 => r1\n");}
 ;
-cmds:                                  {printf("\n*cmds - null");} 
-    | cmd cmds                         {printf("\n*cmds ");}
+cmds:                                  {}
+    | cmd cmds                         {}
 ;
-cmd: att                               {printf("\n*cmd - att");}
-   | condition                         {printf("\n*cmd - condition");}
-   | loop                              {printf("\n*cmd - loop");}
-   | in                                {printf("\n*cmd - in");}
-   | out                               {printf("\n*cmd - out");}
+cmd: att                               {}
+   | condition                         {}
+   | loop                              {}
+   | in                                {}
+   | out                               {}
 ;
-att: ID ASSIGN value SEMICOLON         {printf("\n*att - ID ASSIGN value SEMICOLON ");}
+att: ID ASSIGN value SEMICOLON         {printf("storeAI r1 => r0, 0\n");}
 ;
-value: term                            {printf("\n*value - term ");}
-     | relation                        {printf("\n*value - relation ");}
-     | STRING                          {printf("\n*value - STRING ");}
+value: term                            {}
+     | relation                        {}
+     | STRING                          {}
 ;                        
-term: FLOAT                            {printf("\n*term - FLOAT");} 
-    | INT                              {printf("\n*term - INT");}
-    | ID                               {printf("\n*term - ID ");}
-    | exp                              {printf("\n*term - exp ");}
+term: FLOAT                            {}
+    | INT                              {}
+    | ID                               {}
+    | exp                              {}
 ;
-exp:  L_PAREN term R_PAREN             {printf("\n*exp - ( term )" );}
-    | mat_op                           {printf("\n*exp - term mat_op term" );}
-    | L_PAREN mat_op R_PAREN           {printf("\n*exp - ( term mat_op term )" );}
-;
-
-mat_op: term SUM term                  {printf("\n*mat_op - SUM" );}
-      | term SUB term                  {printf("\n*mat_op - SUB" );}
-      | term MUL term                  {printf("\n*mat_op - MUL" );}
-      | term DIV term                  {printf("\n*mat_op - DIV" );}
+exp:  L_PAREN term R_PAREN             {}
+    | mat_op                           {}
+    | L_PAREN mat_op R_PAREN           {}
 ;
 
-relation:                              {printf("\n*relation - null");} 
-        | term rel_op term             {printf("\n*relation - term rel_op term" );}
+mat_op: term SUM term                  {printf("add r1, r2 => r3\n");}
+      | term SUB term                  {printf("sub r1, r2 => r3\n");}
+      | term MUL term                  {printf("mult r1, r2 => r3\n");}
+      | term DIV term                  {printf("div r1, r2 => r3\n");}
 ;
 
-rel_op: EQ                             {printf("\n*rel_op - EQ" );}
-      | NEQ                            {printf("\n*rel_op - NEQ" );}
-      | LT                             {printf("\n*rel_op - LT" );}
-      | GT                             {printf("\n*rel_op - GT" );}
-      | LTE                            {printf("\n*rel_op - LTE" );}
-      | GTE                            {printf("\n*rel_op - GTE" );}
+relation:                              {}
+        | term rel_op term             {}
+;
+
+rel_op: EQ                             {printf("cbr r1 => L1, L2\n");}
+      | NEQ                            {printf("cbr r1 => L1, L2\n");}
+      | LT                             {printf("cbr r1 => L1, L2\n");}
+      | GT                             {printf("cbr r1 => L1, L2\n");}
+      | LTE                            {printf("cbr r1 => L1, L2\n");}
+      | GTE                            {printf("cbr r1 => L1, L2\n");}
 ;
 
 condition: IF L_PAREN relation R_PAREN L_BRACE cmds R_BRACE else 
-                                       {printf("\n*condition - if");}
+                                       {printf("cbr r1 => L1, L2\n");}
 ;
 
-else:                                  {printf("\n*condition - else null");} 
-    |ELSE L_BRACE cmds R_BRACE         {printf("\n*condition - else");}
+else:                                  {}
+    |ELSE L_BRACE cmds R_BRACE         {}
 ;
 
 loop: WHILE L_PAREN relation R_PAREN L_BRACE cmds R_BRACE 
-                                       {printf("\n*loop");}
+                                       {printf("cbr r1 => L1, L2\n");}
 ;
 
 in: ID ASSIGN IN L_PAREN input R_PAREN SEMICOLON          
-                                       {printf("\n*in");}
+                                       {printf("read r1 => r2\n");}
 ;
 
-input:                                 {printf("\n*in - input - null");}
-      | STRING                         {printf("\n*in - input - string");}
-      | INT                            {printf("\n*in - input - int");}
+input:                                 {}
+      | STRING                         {}
+      | INT                            {}
 ;
 
 out: OUT L_PAREN outputs R_PAREN SEMICOLON 
-                                       {printf("\n*out");}
+                                       {printf("*out");}
 ;
  
-outputs:  value                        {printf("\n*out - output");}
-        | value COMMA outputs          {printf("\n*out - outputs");}
+outputs:  value                        {printf("*out - output");}
+        | value COMMA outputs          {printf("*out - outputs");}
 ;
 
 %%
