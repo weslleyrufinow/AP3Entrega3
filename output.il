@@ -1,0 +1,4 @@
+ADD, 10, 10, R1
+MUL, x, 90, R2
+DIV, R2, 5, R3
+MUL, R3, 9, R4
